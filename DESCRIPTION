@@ -22,5 +22,14 @@ VignetteBuilder: knitr
 Imports: 
     magrittr,
     rlang (>= 0.1.2),
-    tibble
+    tibble,
+    modeltime,
+    timetk(>= 2.6.0),
+    h2o,
+    dplyr,
+    parsnip(>= 0.1.4),
+    purrr,
+    tidyr,
+    stringr,
+    stats
 Config/testthat/edition: 3
