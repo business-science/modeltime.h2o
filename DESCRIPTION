@@ -31,5 +31,7 @@ Imports:
     purrr,
     tidyr,
     stringr,
-    stats
+    stats,
+    glue,
+    fs
 Config/testthat/edition: 3
