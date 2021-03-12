@@ -2,9 +2,12 @@
 % Please edit documentation in R/core-save_and_load.R
 \name{save_h2o_model}
 \alias{save_h2o_model}
+\alias{load_h2o_model}
 \title{Saving and Loading H2O AutoML Models}
 \usage{
 save_h2o_model(object, path, overwrite = FALSE)
+
+load_h2o_model(path)
 }
 \arguments{
 \item{object}{A fitted model object}
@@ -26,14 +29,16 @@ library(timetk)
 library(modeltime.h2o)
 
 model_fit <- automl_reg(mode = 'regression') \%>\%
-  parsnip::set_engine('h2o',
-                     max_runtime_secs = 30, 
-                     max_runtime_secs_per_model = 30,
-                     project_name = 'project_01',
-                     nfolds        = 5,
-                     max_models    = 1000,
-                     exclude_algos = c("DeepLearning"),
-                     seed          =  786) \%>\%
+    set_engine(
+        engine                     = 'h2o',
+        max_runtime_secs           = 30, 
+        max_runtime_secs_per_model = 30,
+        project_name               = 'project_01',
+        nfolds                     = 5,
+        max_models                 = 1000,
+        exclude_algos              = c("DeepLearning"),
+        seed                       =  786
+    ) \%>\%
     fit(value ~ date + id, m750)
 
 # Saves the related files needed to recreate the model

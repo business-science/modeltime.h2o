@@ -1,3 +1,9 @@
+# PACKAGE IMPORTS ----
+
+#' @import h2o 
+#' @import modeltime
+#' @importFrom stats predict
+
 # ON LOAD ----
 
 # The functions below define the model information. These access the model
