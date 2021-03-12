@@ -19,8 +19,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
@@ -62,6 +62,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76139189-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-76139189-2');
+</script>
+
 
   </head>
 
@@ -87,33 +97,37 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fas fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/getting-started.html">Getting Started</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Documentation
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Forecasting</li>
     <li>
-      <a href="../articles/getting-started.html">Getting Started with Modeltime H2O</a>
+      <a href="../articles/getting-started.html">Getting Started with Modeltime</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="../reference/index.html">API Functions</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/business-science/modeltime.h2o/">
-    <span class="fab fa-github fa-lg"></span>
+  <a href="https://github.com/business-science/modeltime">
+    <span class="fab fa-github"></span>
      
   </a>
 </li>
@@ -144,8 +158,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-h-o-algorithm-integrations" class="hasAnchor"><a href="#section-h-o-algorithm-integrations" class="anchor"></a>H2O Algorithm Integrations</h2>
+          <p class="section-desc"><p>The main algorithms that have been integrated with modeltime.</p></p>
         </th>
       </tr>
       
@@ -156,22 +170,23 @@
       <tr>
         
         <td>
-          <p><code><a href="automl_fit_impl.html">automl_fit_impl()</a></code> </p>
-        </td>
-        <td><p>H2O AutoML Modeling Function (Bridge)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="automl_predict_impl.html">automl_predict_impl()</a></code> </p>
-        </td>
-        <td><p>Bridge prediction Function for H2O AutoML Models</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="automl_reg.html">automl_reg()</a></code> </p>
         </td>
         <td><p>General Interface for H2O AutoML Time Series Models</p></td>
-      </tr><tr>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-saving-and-loading-h-o-models" class="hasAnchor"><a href="#section-saving-and-loading-h-o-models" class="anchor"></a>Saving and Loading H2O Models</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="save_h2o_model.html">save_h2o_model()</a></code> <code><a href="save_h2o_model.html">load_h2o_model()</a></code> </p>
