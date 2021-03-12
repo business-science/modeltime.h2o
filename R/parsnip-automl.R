@@ -43,43 +43,55 @@
 #' @examples
 #' \dontrun{
 #' library(tidymodels)
-#' library(tidyverse)
-#' library(timetk)
 #' library(modeltime.h2o)
 #' library(h2o)
+#' library(tidyverse)
+#' library(timetk)
 #' 
 #' data_tbl <- walmart_sales_weekly %>%
-#'             select(id, Date, Weekly_Sales)
+#'     select(id, Date, Weekly_Sales)
 #'             
-#' splits <- timetk::time_series_split(data_tbl, assess = "3 month", cumulative = TRUE)
+#' splits <- time_series_split(
+#'     data_tbl, 
+#'     assess     = "3 month", 
+#'     cumulative = TRUE
+#' )
 #' 
 #' recipe_spec <- recipe(Weekly_Sales ~ ., data = training(splits)) %>%
-#'                step_timeseries_signature(Date)
+#'     step_timeseries_signature(Date)
 #' 
-#' train_tbl <- rsample::training(splits) %>% bake(prep(recipe_spec), .)
-#' test_tbl  <- rsample::testing(splits) %>% bake(prep(recipe_spec), .)
+#' train_tbl <- bake(prep(recipe_spec), training(splits))
+#' test_tbl  <- bake(prep(recipe_spec), testing(splits))
 #' 
-#' h2o.init(nthreads = -1,
-#'          ip = 'localhost',
-#'          port = 54321)
+#' # Initialize H2O
+#' 
+#' h2o.init(
+#'     nthreads = -1,
+#'     ip = 'localhost',
+#'     port = 54321
+#' )
 #'          
 #'  
 #' 
 #' # ---- MODEL SPEC ----
 #' model_spec <- automl_reg(mode = 'regression') %>%
-#'   parsnip::set_engine('h2o',
-#'                      max_runtime_secs = 30, 
-#'                      max_runtime_secs_per_model = 30,
-#'                      project_name = 'project_01',
-#'                      nfolds        = 5,
-#'                      max_models    = 1000,
-#'                      exclude_algos = c("DeepLearning"),
-#'                      seed          =  786) 
+#'     set_engine(
+#'         engine                     = 'h2o',
+#'         max_runtime_secs           = 30, 
+#'         max_runtime_secs_per_model = 30,
+#'         project_name               = 'project_01',
+#'         nfolds                     = 5,
+#'         max_models                 = 1000,
+#'         exclude_algos              = c("DeepLearning"),
+#'         seed                       =  786
+#'     ) 
 #'
 #' model_spec
 #'
 #' # ---- TRAINING ----
 #' # Important: Make sure the date is included as regressor.
+#' 
+#' # This training process should take 30-40 seconds
 #' model_fitted <- model_spec %>%
 #'     fit(Weekly_Sales ~ ., data = train_tbl)
 #'
@@ -88,7 +100,7 @@
 #' # ---- PREDICT ----
 #' # - IMPORTANT: New Data must have date feature
 #'
-#' stats::predict(model_fitted, test_tbl)
+#' predict(model_fitted, test_tbl)
 #' }
 #'
 #' @export
