@@ -48,7 +48,7 @@ Modeltime H2O is part of a __growing ecosystem__ of Modeltime forecasting packag
 
 - [Learn Modeltime Ensemble (Blending Forecasts)](https://business-science.github.io/modeltime.ensemble/)
 
-- [Learn Modeltime Resample (Backtesting)](https://business-science.github.io/modeltime.h2o/)
+- [Learn Modeltime Resample (Backtesting)](https://business-science.github.io/modeltime.resample/)
 
 
 ## High-Performance Forecasting Course
