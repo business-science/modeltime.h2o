@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# modeltime.h2o <img src='man/figures/logo-modeltime-h2o.png' align="right" height="138" />
+# modeltime.h2o <img src='man/figures/logo.png' align="right" height="138" />
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/modeltime.h2o)](https://cran.r-project.org/package=modeltime.h2o)
