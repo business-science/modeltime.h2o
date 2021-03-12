@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/modeltime.h2o)](https://cran.r-project.org/package=modeltime.h2o)
+![](http://cranlogs.r-pkg.org/badges/modeltime.h2o?color=brightgreen)
+![](http://cranlogs.r-pkg.org/badges/grand-total/modeltime.h2o?color=brightgreen)
 [![Codecov test
 coverage](https://codecov.io/gh/business-science/modeltime.h2o/branch/master/graph/badge.svg)](https://codecov.io/gh/business-science/modeltime.h2o?branch=master)
 [![R-CMD-check](https://github.com/business-science/modeltime.h2o/workflows/R-CMD-check/badge.svg)](https://github.com/business-science/modeltime.h2o/actions)
