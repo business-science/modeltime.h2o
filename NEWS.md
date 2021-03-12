@@ -1,3 +1,5 @@
 # modeltime.h2o 0.0.0.9000
 
-* Added a `NEWS.md` file to track changes to the package.
+## New Algorithm
+
+- `automl_reg()`: Uses H2O AutoML as a backend for forecasting.  
