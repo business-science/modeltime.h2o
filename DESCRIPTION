@@ -36,6 +36,7 @@ Suggests:
     knitr,
     rmarkdown,
     roxygen2,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    covr
 URL: https://github.com/business-science/modeltime.h2o
 BugReports: https://github.com/business-science/modeltime.h2o/issues

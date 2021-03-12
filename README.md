@@ -4,6 +4,10 @@
 # modeltime.h2o <img src='man/figures/logo.png' align="right" height="138" />
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/business-science/modeltime.h2o/branch/master/graph/badge.svg)](https://codecov.io/gh/business-science/modeltime.h2o?branch=master)
+[![R-CMD-check](https://github.com/business-science/modeltime.h2o/workflows/R-CMD-check/badge.svg)](https://github.com/business-science/modeltime.h2o/actions)
 <!-- badges: end -->
 
 > Forecasting with H2O AutoML
