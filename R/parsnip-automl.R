@@ -206,7 +206,6 @@ automl_fit_impl <- function(x, y, ...) {
   model <- h2o::h2o.getModel(model_id)
   
   # MODELING FUNCTION
-  message("\n\nLeaderboard: ")
   .f <- purrr::compose(
       purrr::partial(h2o::h2o.predict, newdata = training_frame),
       tibble::as_tibble,
