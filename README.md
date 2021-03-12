@@ -71,8 +71,9 @@ your organization a “High-Performance Time Series Forecasting System”
 
 I teach how to build a HPTFS System in my **High-Performance Time Series
 Forecasting Course**. If interested in learning Scalable
-High-Performance Forecasting Strategies then [take my
-course](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting).
+High-Performance Forecasting Strategies then [take my Time Series
+Forecasting
+Course](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting).
 You will learn:
 
 -   **Time Series Machine Learning** (cutting-edge) with `Modeltime` -
