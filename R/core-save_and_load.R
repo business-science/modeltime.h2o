@@ -29,28 +29,15 @@
 #'     fit(value ~ date + id, m750)
 #'
 #' # Saves the related files needed to recreate the model
-#' model_fit %>% save_h2o_automl_model(path = "/dir_h2o_automl_model/")
+#' model_fit %>% save_h2o_model(path = "/dir_h2o_automl_model/")
 #' 
-#' #Change the model inside model_fit
-#' 
-#' #' model_fit <- automl_reg(mode = 'regression') %>%
-#'   parsnip::set_engine('h2o',
-#'                      max_runtime_secs = 30, 
-#'                      max_runtime_secs_per_model = 30,
-#'                      project_name = 'project_01',
-#'                      nfolds        = 5,
-#'                      max_models    = 1000,
-#'                      exclude_algos = c("DeepLearning"),
-#'                      seed          =  123) %>%
-#'     fit(value ~ date + id, m750)
-#'
-#' # Loads the first model into model_fit structure
-#' load_h2o_automl_model(object = model_fit, path = "/dir_h2o_automl_model/")
+#' # Loads the model
+#' load_h2o_model(path = "/dir_h2o_automl_model/")
 #'
 #' }
 #'
 #' @export
-save_h2o_automl_model <- function(object, path, overwrite = FALSE) {
+save_h2o_model <- function(object, path, overwrite = FALSE) {
     
     # Check Class
     is_acceptable_class <- c("workflow", "model_fit") %>%
@@ -81,31 +68,29 @@ save_h2o_automl_model <- function(object, path, overwrite = FALSE) {
     }
     
     # SAVE PROCEDURE
-
+    
+    # 1. Save the modeltime model
+    
+    rds_path <- fs::path(path, "modeltime_model.rds")
+    saveRDS(object, file = rds_path)
+    
+    # 2. Save (Serialize) the H2O model
+    
     if (inherits(object, "workflow")) {
         # Is workflow
-        
-        fileout <- h2o::h2o.saveModel(
-            object = object$fit$fit$fit$models$model_1,
-            path   = path,
-            force  = overwrite
-        )
-        
-        
-        
-        file.rename(fileout, fs::path(path, 'modeltime_h2oautoml_model'))
-        
+        h2o_model <- object$fit$fit$fit$models$model_1
     } else {
         # Is parsnip model_fit
-        fileout <- h2o::h2o.saveModel(
-            object = object$fit$models$model_1,
-            path   = path,
-            force  = overwrite
-        )
-        
-        file.rename(fileout, fs::path(path, 'modeltime_h2oautoml_model'))
-
+        h2o_model <- object$fit$models$model_1
     }
+    
+    fileout <- h2o::h2o.saveModel(
+        object = h2o_model,
+        path   = path,
+        force  = overwrite
+    )
+    
+    file.rename(fileout, fs::path(path, 'h2o_model'))
     
     msg <- glue::glue("\n\nModel saved at path: {path}")
     message(msg)
@@ -113,15 +98,7 @@ save_h2o_automl_model <- function(object, path, overwrite = FALSE) {
 
 
 #' @export
-load_h2o_automl_model <- function(object, path) {
-    
-    # Check Class
-    is_acceptable_class <- c("workflow", "model_fit") %>%
-        purrr::map_lgl(.f = function(cl) inherits(object, cl)) %>%
-        any()
-    if (!is_acceptable_class) {
-        rlang::abort("'object' must be class 'workflow' or 'model_fit'.")
-    }
+load_h2o_model <- function(path) {
     
     # Check Path
     path_extension <- fs::path_ext(path)
@@ -130,8 +107,12 @@ load_h2o_automl_model <- function(object, path) {
         rlang::abort(msg)
     }
     
-    # 1. Load the model
-    path <- fs::path(path, "modeltime_h2oautoml_model")
+    # 1. Load the modeltime model
+    rds_path <- fs::path(path, "modeltime_model.rds")
+    object   <- readRDS(file = rds_path)
+    
+    # 2. Load the H2O model
+    path  <- fs::path(path, "h2o_model")
     model <- h2o::h2o.loadModel(path)
     
     # 2. Recombine the modeltime model and the gluon model
