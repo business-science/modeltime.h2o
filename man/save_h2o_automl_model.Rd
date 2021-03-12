@@ -39,8 +39,21 @@ model_fit <- automl_reg(mode = 'regression') \%>\%
 # Saves the related files needed to recreate the model
 model_fit \%>\% save_h2o_automl_model(path = "/dir_h2o_automl_model/")
 
-# Loads the model
-load_h2o_automl_model(path = "/dir_h2o_automl_model/")
+#Change the model inside model_fit
+
+#' model_fit <- automl_reg(mode = 'regression') \%>\%
+  parsnip::set_engine('h2o',
+                     max_runtime_secs = 30, 
+                     max_runtime_secs_per_model = 30,
+                     project_name = 'project_01',
+                     nfolds        = 5,
+                     max_models    = 1000,
+                     exclude_algos = c("DeepLearning"),
+                     seed          =  123) \%>\%
+    fit(value ~ date + id, m750)
+
+# Loads the first model into model_fit structure
+load_h2o_automl_model(object = model_fit, path = "/dir_h2o_automl_model/")
 
 }
 

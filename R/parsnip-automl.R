@@ -162,7 +162,7 @@ automl_fit_impl <- function(formula, data, ...) {
     training_frame <- data;
     data <- dplyr::as_tibble(data)
     
-    }
+  }
 
   
   # INDEX & PERIOD
@@ -203,9 +203,9 @@ automl_fit_impl <- function(formula, data, ...) {
     # Data - .actual, .fitted, and .residuals columns
     data = tibble::tibble(
       !!idx_col    :=  idx,
-      .actual      =  base::as.numeric(data[[y]]),
-      .fitted      =  .f(model),
-      .residuals   =  base::as.numeric(data[[y]]) - .f(model)
+      .actual       =  base::as.numeric(data[[y]]),
+      .fitted       =  .f(model),
+      .residuals    =  base::as.numeric(data[[y]]) - .f(model)
     ),
 
     # Description - Convert arima model parameters to short description

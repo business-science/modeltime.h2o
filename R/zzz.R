@@ -7,6 +7,6 @@
 .onLoad <- function(libname, pkgname) {
     # This defines the model database
     
-  #H2O AutoML
+    #H2O AutoML
     make_automl()
 }
