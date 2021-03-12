@@ -4,14 +4,14 @@
 \alias{automl_fit_impl}
 \title{H2O AutoML Modeling Function (Bridge)}
 \usage{
-automl_fit_impl(formula, data, ...)
+automl_fit_impl(x, y, ...)
 }
 \arguments{
-\item{formula}{formula specified for training}
+\item{x}{A dataframe of xreg (exogenous regressors)}
 
-\item{data}{A dataframe containing the training data}
+\item{y}{A numeric vector of values to fit}
 
-\item{...}{Additional arguments.}
+\item{...}{Additional arguments passed to \code{h2o.automl()}.}
 }
 \description{
 H2O AutoML Modeling Function (Bridge)

@@ -43,8 +43,8 @@ make_automl <- function() {
     eng           = eng,
     mode          = mode,
     value         = list(
-      interface = "formula",
-      protect = c("formula", "x", "y", "training_frame"),
+      interface = "data.frame",
+      protect   = c("x", "y"),
       func      = c(fun = "automl_fit_impl"),
       defaults  = list()
     )

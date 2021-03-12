@@ -138,61 +138,82 @@ translate.automl_reg <- function(x, engine = x$engine, ...) {
 
 #' H2O AutoML Modeling Function (Bridge)
 #'
-#' @param formula formula specified for training
-#' @param data A dataframe containing the training data
-#' @param ... Additional arguments.
+#' @param x A dataframe of xreg (exogenous regressors)
+#' @param y A numeric vector of values to fit
+#' @param ... Additional arguments passed to `h2o.automl()`.
 #' 
 #' @export
-automl_fit_impl <- function(formula, data, ...) {
+automl_fit_impl <- function(x, y, ...) {
 
   others <- list(...)
 
-  y <- all.vars(formula)[1]
-
-  x <- attr(stats::terms(formula, data = data), "term.labels")
+  # y <- all.vars(formula)[1]
+  # x <- attr(stats::terms(formula, data = data), "term.labels")
   
-  if (!inherits(data, "H2OFrame")){
-    
-    training_frame <- data %>%
-                      dplyr::mutate_if(is.ordered, ~{factor(.x, ordered = F)}) %>%
-                      h2o::as.h2o()
-    
-  } else { 
-    
-    training_frame <- data;
-    data <- dplyr::as_tibble(data)
-    
+  # X & Y NAMES
+  y_nm  <- "target"
+  x_nms <- names(x)
+  
+  # CONSTRUCT TRAINING FRAME
+  if (!inherits(data, "H2OFrame")) {
+    message("Converting to H2OFrame...")
+    training_frame <- tibble::tibble(x) %>%
+      dplyr::mutate(target = y) %>%
+      dplyr::mutate_if(is.ordered, ~{factor(.x, ordered = F)}) %>%
+      h2o::as.h2o()
+  } else {
+    training_frame <- x
+    training_frame["target"] <- y
   }
-
   
   # INDEX & PERIOD
   # Determine Period, Index Col, and Index
-  index_tbl <- modeltime::parse_index_from_data(data %>% dplyr::select(dplyr::all_of(x)))
+  index_tbl <- tibble::as_tibble(x) %>% modeltime::parse_index_from_data()
   period    <- modeltime::parse_period_from_index(index_tbl, 'auto')
   idx_col   <- names(index_tbl)
   idx       <- timetk::tk_index(index_tbl)
-
+  
+  # TRAIN H2O AUTOML  
+  message("\nTraining H2O AutoML...")
   args <- list(
-    x = x,
-    y = y,
+    x = x_nms,
+    y = y_nm,
     training_frame = training_frame
   )
 
   res <- make_h2o_call("h2o.automl", args, others)
-
-  model <- tidyr::as_tibble(res@leaderboard) %>%
-           dplyr::slice(1) %>%
-           dplyr::pull(model_id) %>%
-           h2o::h2o.getModel()
   
-  .f <- purrr::compose(purrr::partial(h2o::h2o.predict, newdata = training_frame),
-                       tidyr::as_tibble,
-                       purrr::as_vector,
-                       base::as.numeric,
-                       .dir = 'forward')
+  # LEADERBOARD
+  
+  leaderboard_tbl <- tibble::as_tibble(res@leaderboard)
+  
+  model_id <- leaderboard_tbl %>%
+      dplyr::slice(1) %>%
+      dplyr::pull(model_id) 
+  
+  model <- h2o::h2o.getModel(model_id)
+  
+  # MODELING FUNCTION
+  message("\n\nLeaderboard: ")
+  .f <- purrr::compose(
+      purrr::partial(h2o::h2o.predict, newdata = training_frame),
+      tibble::as_tibble,
+      purrr::as_vector,
+      base::as.numeric,
+      .dir = 'forward'
+  )
+  
+  yhat <- .f(model)
+  
+  # MESSAGING
+  message("\n\nLeaderboard: ")
+  print(res@leaderboard)
+  
+  message(glue::glue("\n\nUsing top model: {model_id}"))
   
   # RETURN
   modeltime::new_modeltime_bridge(
+    
     class = "automl_fit_impl",
 
     # Models
@@ -203,9 +224,15 @@ automl_fit_impl <- function(formula, data, ...) {
     # Data - .actual, .fitted, and .residuals columns
     data = tibble::tibble(
       !!idx_col    :=  idx,
-      .actual       =  base::as.numeric(data[[y]]),
-      .fitted       =  .f(model),
-      .residuals    =  base::as.numeric(data[[y]]) - .f(model)
+      .actual       =  base::as.numeric(y),
+      .fitted       =  yhat,
+      .residuals    =  base::as.numeric(y) - yhat
+    ),
+    
+    extras = list(
+      leaderboard    = leaderboard_tbl,
+      x              = x_nms,
+      y              = y_nm
     ),
 
     # Description - Convert arima model parameters to short description
@@ -262,7 +289,7 @@ automl_predict_impl <- function(object, new_data, ...) {
   model  <- object$models$model_1
   
   if (!inherits(new_data, "H2OFrame")) {
-
+    message("Converting to H2OFrame...")
     new_data <- new_data %>%
       dplyr::mutate_if(is.ordered, ~{factor(.x, ordered = F)}) %>%
       h2o::as.h2o()
