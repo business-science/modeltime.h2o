@@ -1,5 +1,5 @@
 Package: modeltime.h2o
-Title: Modeltime 'H2O' Machine Learning Backend
+Title: Modeltime 'H2O' Machine Learning
 Version: 0.0.0.9000
 Authors@R: c(
     person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut", "cre")),
