@@ -31,7 +31,7 @@ forecast was created with **H2O AutoML**. Try it out in [Getting Started
 with Modeltime
 H2O](https://business-science.github.io/modeltime.h2o/articles/getting-started.html).
 
-<img src="man/figures/h2o_forecast.png" width="100%" />
+<img src="man/figures/h2o_forecast_plot.png" width="100%" />
 
 ## Meet the Forecasting Ecosystem
 

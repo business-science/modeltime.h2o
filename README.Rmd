@@ -36,7 +36,7 @@ devtools::install_github("business-science/modeltime.h2o")
 With the Modeltime Ecosystem, it's easy to forecast at scale. This forecast was created with __H2O AutoML__. Try it out in [Getting Started with Modeltime H2O](https://business-science.github.io/modeltime.h2o/articles/getting-started.html). 
 
 ```{r, echo=FALSE}
-knitr::include_graphics("man/figures/h2o_forecast.png")
+knitr::include_graphics("man/figures/h2o_forecast_plot.png")
 ```
 
 ## Meet the Forecasting Ecosystem 
