@@ -26,9 +26,9 @@ knitr::opts_chunk$set(
 
 Forecasting with `modeltime.h2o` made easy! This short tutorial shows how you can use:
 
-- __H2O_AutoML__ for forecasting implemented via `automl_reg()`. This function trains and cross-validates multiple machine learning and deep learning models (XGBoost GBM, GLMs, Random Forest, GBMs...) and then trains two Stacked Ensembled models, one of all the models, and one of only the best models of each kind. Finally, the best model is selected based on a stopping metric. And we take care of all this for you!
+- __H2O AutoML__ for forecasting implemented via `automl_reg()`. This function trains and cross-validates multiple machine learning and deep learning models (XGBoost GBM, GLMs, Random Forest, GBMs...) and then trains two Stacked Ensembled models, one of all the models, and one of only the best models of each kind. Finally, the best model is selected based on a stopping metric. And we take care of all this for you!
 
-- __Save & Load Models__ functionality to ensure the persistance of your models.
+- __Save & Load Models__ functionality to ensure the persistence of your models.
 
 
 ## Libraries
@@ -54,10 +54,11 @@ data_tbl <- walmart_sales_weekly %>%
 data_tbl %>% 
   group_by(id) %>% 
   plot_time_series(
-      .date_var   = Date,
-      .value      = Weekly_Sales,
-      .facet_ncol = 2,
-      .smooth     = F
+      .date_var    = Date,
+      .value       = Weekly_Sales,
+      .facet_ncol  = 2,
+      .smooth      = F,
+      .interactive = F
   )
 ```
 
