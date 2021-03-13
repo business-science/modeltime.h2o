@@ -181,7 +181,7 @@ automl_fit_impl <- function(x, y, ...) {
   # INDEX & PERIOD
   # Determine Period, Index Col, and Index
   index_tbl <- tibble::as_tibble(x) %>% modeltime::parse_index_from_data()
-  period    <- modeltime::parse_period_from_index(index_tbl, 'auto')
+  # period    <- modeltime::parse_period_from_index(index_tbl, 'auto')
   idx_col   <- names(index_tbl)
   idx       <- timetk::tk_index(index_tbl)
   
