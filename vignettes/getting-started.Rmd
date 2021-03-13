@@ -22,14 +22,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-<img src="logo.png" width="147" height="170" align="right" />
+<img src="logo.png" width="147" height="170" align="right"/>
 
 Forecasting with `modeltime.h2o` made easy! This short tutorial shows how you can use:
 
-- __H2O AutoML__ for forecasting implemented via `automl_reg()`. This function trains and cross-validates multiple machine learning and deep learning models (XGBoost GBM, GLMs, Random Forest, GBMs...) and then trains two Stacked Ensembled models, one of all the models, and one of only the best models of each kind. Finally, the best model is selected based on a stopping metric. And we take care of all this for you!
+-   **H2O AutoML** for forecasting implemented via `automl_reg()`. This function trains and cross-validates multiple machine learning and deep learning models (XGBoost GBM, GLMs, Random Forest, GBMs...) and then trains two Stacked Ensembled models, one of all the models, and one of only the best models of each kind. Finally, the best model is selected based on a stopping metric. And we take care of all this for you!
 
-- __Save & Load Models__ functionality to ensure the persistence of your models.
-
+-   **Save & Load Models** functionality to ensure the persistence of your models.
 
 ## Libraries
 
@@ -41,7 +40,6 @@ library(modeltime.h2o)
 library(tidyverse)
 library(timetk)
 ```
-
 
 ## Collect data and split into training and test sets
 
@@ -70,8 +68,8 @@ splits <- time_series_split(data_tbl, assess = "3 month", cumulative = TRUE)
 recipe_spec <- recipe(Weekly_Sales ~ ., data = training(splits)) %>%
     step_timeseries_signature(Date) 
 
-train_tbl <- rsample::training(splits) %>% bake(prep(recipe_spec), .)
-test_tbl  <- rsample::testing(splits) %>% bake(prep(recipe_spec), .)
+train_tbl <- training(splits) %>% bake(prep(recipe_spec), .)
+test_tbl  <- testing(splits) %>% bake(prep(recipe_spec), .)
 ```
 
 ## Model specification, training and prediction
@@ -119,19 +117,17 @@ Finally, we predict on the test dataset:
 predict(model_fitted, test_tbl)
 ```
 
-
 ## Modeltime Workflow
 
 Once we have our fitted model, we can follow the modeltime workflow from step 3:
 
-- Add fitted models to a __Model Table__.
+-   Add fitted models to a **Model Table**.
 
-- __Calibrate__ the models to a testing set.
+-   **Calibrate** the models to a testing set.
 
-- Perform Testing Set Forecast & Accuracy Evaluation.
+-   Perform Testing Set Forecast & Accuracy Evaluation.
 
-- __Refit__ the models to Full Dataset & Forecast Forward
-
+-   **Refit** the models to Full Dataset & Forecast Forward
 
 ## Add fitted models to a Model Table
 
@@ -166,7 +162,7 @@ modeltime_tbl %>%
 
 ## Refit to Full Dataset & Forecast Forward
 
-Before using __refit__ on our dataset, let's prepare our data. We create `data_prepared_tbl` which represents the complete dataset (the union of train and test) with the variables created with the recipe named recipe_spec. Subsequently, we create the dataset `future_prepared_tbl` that represents the dataset with the future data to one year and the required variables.
+Before using **refit** on our dataset, let's prepare our data. We create `data_prepared_tbl` which represents the complete dataset (the union of train and test) with the variables created with the recipe named recipe_spec. Subsequently, we create the dataset `future_prepared_tbl` that represents the dataset with the future data to one year and the required variables.
 
 ```{r}
 data_prepared_tbl <- bind_rows(train_tbl, test_tbl)
@@ -202,10 +198,10 @@ We can likely do better than this if we train longer but really good for a quick
 
 ## Saving and Loading Models
 
-H2O models will need to “serialized” (a fancy word for saved to a directory that contains the recipe for recreating the models). To save the models, use `save_h2o_model()`.
+H2O models will need to "serialized" (a fancy word for saved to a directory that contains the recipe for recreating the models). To save the models, use `save_h2o_model()`.
 
-- Provide a directory where you want to save the model.
-- This saves the model file in the directory.
+-   Provide a directory where you want to save the model.
+-   This saves the model file in the directory.
 
 ```{r, eval = F}
 model_fitted %>% 
@@ -218,31 +214,36 @@ You can reload the model into R using `load_h2o_model()`.
 model_h2o <- load_h2o_model(path = "../model_fitted/")
 ```
 
-
 ## Learning More
 
 <p>
-<iframe width="100%" height="450" src="https://www.youtube.com/embed/elQb4VzRINg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);"></iframe>
+
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/elQb4VzRINg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);">
+
+</iframe>
+
 </p>
 
-_My Talk on High-Performance Time Series Forecasting_
+*My Talk on High-Performance Time Series Forecasting*
 
-Time series is changing. __Businesses now need 10,000+ time series forecasts every day.__ This is what I call a _High-Performance Time Series Forecasting System (HPTSF)_ - Accurate, Robust, and Scalable Forecasting. 
+Time series is changing. **Businesses now need 10,000+ time series forecasts every day.** This is what I call a *High-Performance Time Series Forecasting System (HPTSF)* - Accurate, Robust, and Scalable Forecasting.
 
-You need to provide a "High-Performance Time Series Forecasting System" (HPTSF System). __High-Performance Forecasting Systems will save companies MILLIONS of dollars.__ 
+You need to provide a "High-Performance Time Series Forecasting System" (HPTSF System). **High-Performance Forecasting Systems will save companies MILLIONS of dollars.**
 
-I teach how to build a HPTFS System in my __High-Performance Time Series Forecasting Course__. If interested in learning Scalable High-Performance Forecasting Strategies then [take my course](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting). You will learn:
+I teach how to build a HPTFS System in my **High-Performance Time Series Forecasting Course**. If interested in learning Scalable High-Performance Forecasting Strategies then [take my course](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting). You will learn:
 
-- Time Series Machine Learning (cutting-edge) with `Modeltime` - 30+ Models (Prophet, ARIMA, XGBoost, Random Forest, & many more)
-- NEW - Deep Learning with `GluonTS` (Competition Winners)
-- Time Series Preprocessing, Noise Reduction, & Anomaly Detection
-- Feature engineering using lagged variables & external regressors
-- Hyperparameter Tuning
-- Time series cross-validation
-- Ensembling Multiple Machine Learning & Univariate Modeling Techniques (Competition Winner)
-- Scalable Forecasting - Forecast 1000+ time series in parallel
-- and more.
+-   Time Series Machine Learning (cutting-edge) with `Modeltime` - 30+ Models (Prophet, ARIMA, XGBoost, Random Forest, & many more)
+-   NEW - Deep Learning with `GluonTS` (Competition Winners)
+-   Time Series Preprocessing, Noise Reduction, & Anomaly Detection
+-   Feature engineering using lagged variables & external regressors
+-   Hyperparameter Tuning
+-   Time series cross-validation
+-   Ensembling Multiple Machine Learning & Univariate Modeling Techniques (Competition Winner)
+-   Scalable Forecasting - Forecast 1000+ time series in parallel
+-   and more.
 
 <p class="text-center" style="font-size:30px;">
+
 <a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Unlock the High-Performance Time Series Forecasting Course</a>
+
 </p>
