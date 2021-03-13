@@ -1,6 +1,6 @@
 Package: modeltime.h2o
 Title: Modeltime 'H2O' Machine Learning
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(
     person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut", "cre")),
     person("Business Science", role = "cph"))
