@@ -53,16 +53,18 @@ data_tbl <- walmart_sales_weekly %>%
 
 data_tbl %>% 
   group_by(id) %>% 
-  timetk::plot_time_series(.date_var   = Date,
-                           .value      = Weekly_Sales,
-                           .facet_ncol = 2,
-                           .smooth     = F)
+  plot_time_series(
+      .date_var   = Date,
+      .value      = Weekly_Sales,
+      .facet_ncol = 2,
+      .smooth     = F
+  )
 ```
 
 Then, we separate the data with the `initial_time_split()` function and generate a training dataset and a test one.
 
 ```{r}
-splits <- timetk::time_series_split(data_tbl, assess = "3 month", cumulative = TRUE)
+splits <- time_series_split(data_tbl, assess = "3 month", cumulative = TRUE)
 
 recipe_spec <- recipe(Weekly_Sales ~ ., data = training(splits)) %>%
     step_timeseries_signature(Date) 
@@ -78,8 +80,8 @@ In order to correctly use modeltime.h2o, it is necessary to connect to an H2O cl
 ```{r}
 h2o.init(
     nthreads = -1,
-    ip = 'localhost',
-    port = 54321
+    ip       = 'localhost',
+    port     = 54321
 )
 ```
 
@@ -87,16 +89,15 @@ Now comes the fun part! We define our model specification with the `automl_reg()
 
 ```{r}
 model_spec <- automl_reg(mode = 'regression') %>%
-    parsnip::set_engine(
-        engine                      = 'h2o',
-         max_runtime_secs           = 30, 
-         max_runtime_secs_per_model = 30,
-         project_name               = 'project_01',
+    set_engine(
+         engine                     = 'h2o',
+         max_runtime_secs           = 5, 
+         max_runtime_secs_per_model = 3,
+         max_models                 = 3,
          nfolds                     = 5,
-         max_models                 = 1000,
          exclude_algos              = c("DeepLearning"),
          verbosity                  = NULL,
-         seed                       =  786
+         seed                       = 786
     ) 
 
 model_spec
@@ -156,7 +157,10 @@ modeltime_tbl %>%
         keep_data   = TRUE
     ) %>%
     group_by(id) %>%
-    plot_modeltime_forecast(.facet_ncol = 2)
+    plot_modeltime_forecast(
+        .facet_ncol = 2, 
+        .interactive = FALSE
+    )
 ```
 
 ## Refit to Full Dataset & Forecast Forward
@@ -187,7 +191,10 @@ refit_tbl %>%
         keep_data   = TRUE
     ) %>%
     group_by(id) %>%
-    plot_modeltime_forecast(.facet_ncol = 2)
+    plot_modeltime_forecast(
+        .facet_ncol  = 2,
+        .interactive = FALSE
+    )
 ```
 
 We can likely do better than this if we train longer but really good for a quick example!
@@ -199,14 +206,14 @@ H2O models will need to “serialized” (a fancy word for saved to a directory 
 - Provide a directory where you want to save the model.
 - This saves the model file in the directory.
 
-```{r}
+```{r, eval = F}
 model_fitted %>% 
   save_h2o_model(path = "../model_fitted", overwrite = TRUE)
 ```
 
 You can reload the model into R using `load_h2o_model()`.
 
-```{r}
+```{r, eval = F}
 model_h2o <- load_h2o_model(path = "../model_fitted/")
 ```
 
