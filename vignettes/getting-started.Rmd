@@ -82,7 +82,7 @@ In order to correctly use modeltime.h2o, it is necessary to connect to an H2O cl
 h2o.init(
     nthreads = -1,
     ip       = 'localhost',
-    port     = 54321
+    port     = 12345
 )
 ```
 
