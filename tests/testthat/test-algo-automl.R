@@ -5,7 +5,7 @@ testthat::context("H2O AUTOML TEST")
 h2o.init(
     nthreads = -1,
     ip = 'localhost',
-    port = 54321
+    port = 12345
 )
 
 # Model Spec
