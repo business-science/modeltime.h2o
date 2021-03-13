@@ -150,8 +150,8 @@
 <span class="va">recipe_spec</span> <span class="op">&lt;-</span> <span class="fu">recipe</span><span class="op">(</span><span class="va">Weekly_Sales</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="fu">training</span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
     <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/step_timeseries_signature.html">step_timeseries_signature</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> 
 
-<span class="va">train_tbl</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">bake</span><span class="op">(</span><span class="fu">prep</span><span class="op">(</span><span class="va">recipe_spec</span><span class="op">)</span>, <span class="va">.</span><span class="op">)</span>
-<span class="va">test_tbl</span>  <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">bake</span><span class="op">(</span><span class="fu">prep</span><span class="op">(</span><span class="va">recipe_spec</span><span class="op">)</span>, <span class="va">.</span><span class="op">)</span></code></pre></div>
+<span class="va">train_tbl</span> <span class="op">&lt;-</span> <span class="fu">training</span><span class="op">(</span><span class="va">splits</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">bake</span><span class="op">(</span><span class="fu">prep</span><span class="op">(</span><span class="va">recipe_spec</span><span class="op">)</span>, <span class="va">.</span><span class="op">)</span>
+<span class="va">test_tbl</span>  <span class="op">&lt;-</span> <span class="fu">testing</span><span class="op">(</span><span class="va">splits</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">bake</span><span class="op">(</span><span class="fu">prep</span><span class="op">(</span><span class="va">recipe_spec</span><span class="op">)</span>, <span class="va">.</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="model-specification-training-and-prediction" class="section level2">
 <h2 class="hasAnchor">
@@ -167,19 +167,19 @@
 <span class="co">#&gt; H2O is not running yet, starting it now...</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Note:  In case of errors look at the following log files:</span>
-<span class="co">#&gt;     /tmp/RtmpdZUgKG/file42de420fa60f/h2o_runner_started_from_r.out</span>
-<span class="co">#&gt;     /tmp/RtmpdZUgKG/file42de46281a41/h2o_runner_started_from_r.err</span>
+<span class="co">#&gt;     /tmp/RtmpsKKxsb/file43941532c9d8/h2o_runner_started_from_r.out</span>
+<span class="co">#&gt;     /tmp/RtmpsKKxsb/file43944eacc636/h2o_runner_started_from_r.err</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Starting H2O JVM and connecting: .. Connection successful!</span>
+<span class="co">#&gt; Starting H2O JVM and connecting: .... Connection successful!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         1 seconds 946 milliseconds </span>
+<span class="co">#&gt;     H2O cluster uptime:         3 seconds 60 milliseconds </span>
 <span class="co">#&gt;     H2O cluster timezone:       UTC </span>
 <span class="co">#&gt;     H2O data parsing timezone:  UTC </span>
 <span class="co">#&gt;     H2O cluster version:        3.32.0.1 </span>
 <span class="co">#&gt;     H2O cluster version age:    5 months and 4 days !!! </span>
-<span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_runner_fvn624 </span>
+<span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_runner_dir538 </span>
 <span class="co">#&gt;     H2O cluster total nodes:    1 </span>
 <span class="co">#&gt;     H2O cluster total memory:   1.51 GB </span>
 <span class="co">#&gt;     H2O cluster total cores:    2 </span>
@@ -230,13 +230,13 @@
 <span id="cb6-9"><a href="#cb6-9"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb6-10"><a href="#cb6-10"></a><span class="st">  </span><span class="er">|</span><span class="st">                                                                      </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</span>
 <span id="cb6-11"><a href="#cb6-11"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="st">  </span><span class="er">|==</span><span class="st">                                                                    </span><span class="er">|</span><span class="st">   </span><span class="dv">3</span>%</span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="st">  </span><span class="er">|===</span><span class="st">                                                                   </span><span class="er">|</span><span class="st">   </span><span class="dv">4</span>%</span>
 <span id="cb6-13"><a href="#cb6-13"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb6-14"><a href="#cb6-14"></a><span class="st">  </span><span class="er">|=================</span><span class="st">                                                     </span><span class="er">|</span><span class="st">  </span><span class="dv">24</span>%</span>
 <span id="cb6-15"><a href="#cb6-15"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="st">  </span><span class="er">|===============================</span><span class="st">                                       </span><span class="er">|</span><span class="st">  </span><span class="dv">44</span>%</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="st">  </span><span class="er">|===============================</span><span class="st">                                       </span><span class="er">|</span><span class="st">  </span><span class="dv">45</span>%</span>
 <span id="cb6-17"><a href="#cb6-17"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="st">  </span><span class="er">|=============================================</span><span class="st">                         </span><span class="er">|</span><span class="st">  </span><span class="dv">65</span>%</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="st">  </span><span class="er">|==============================================</span><span class="st">                        </span><span class="er">|</span><span class="st">  </span><span class="dv">65</span>%</span>
 <span id="cb6-19"><a href="#cb6-19"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb6-20"><a href="#cb6-20"></a><span class="st">  </span><span class="er">|======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
 <span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt; </span></span>
@@ -245,22 +245,22 @@
 <span id="cb6-24"><a href="#cb6-24"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb6-25"><a href="#cb6-25"></a><span class="st">  </span><span class="er">|======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
 <span id="cb6-26"><a href="#cb6-26"></a><span class="co">#&gt;                                           model_id mean_residual_deviance</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210313_023827              211588740</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210313_023827              965649673</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210313_023827              988159932</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210313_023827             1443141939</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="co">#&gt;       rmse        mse      mae     rmsle</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="co">#&gt; 1 14546.09  211588740 10632.09 0.2782992</span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="co">#&gt; 2 31074.90  965649673 20168.95 0.7839469</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="co">#&gt; 3 31435.01  988159932 22856.93 0.7258489</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="co">#&gt; 4 37988.71 1443141939 27805.73 0.9662266</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210313_024948               76338403</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210313_024948              974410205</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#&gt; 3                 XGBoost_1_AutoML_20210313_024948             1223130324</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#&gt; 4                 XGBoost_2_AutoML_20210313_024948             1481254968</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">#&gt;        rmse        mse       mae     rmsle</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">#&gt; 1  8737.185   76338403  6175.395 0.1745528</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">#&gt; 2 31215.544  974410205 20654.011 0.7859500</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co">#&gt; 3 34973.280 1223130324 25570.183 0.8518968</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="co">#&gt; 4 38487.075 1481254968 28912.832 0.9822455</span></span>
 <span id="cb6-36"><a href="#cb6-36"></a><span class="co">#&gt; </span></span>
 <span id="cb6-37"><a href="#cb6-37"></a><span class="co">#&gt; [4 rows x 6 columns]</span></span>
 <span id="cb6-38"><a href="#cb6-38"></a></span>
 <span id="cb6-39"><a href="#cb6-39"></a>model_fitted</span>
 <span id="cb6-40"><a href="#cb6-40"></a><span class="co">#&gt; parsnip model object</span></span>
 <span id="cb6-41"><a href="#cb6-41"></a><span class="co">#&gt; </span></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="co">#&gt; Fit time:  13.5s </span></span>
+<span id="cb6-42"><a href="#cb6-42"></a><span class="co">#&gt; Fit time:  13.8s </span></span>
 <span id="cb6-43"><a href="#cb6-43"></a><span class="co">#&gt; </span></span>
 <span id="cb6-44"><a href="#cb6-44"></a><span class="co">#&gt; H2O AutoML - Stackedensemble</span></span>
 <span id="cb6-45"><a href="#cb6-45"></a><span class="co">#&gt; --------</span></span>
@@ -268,7 +268,7 @@
 <span id="cb6-47"><a href="#cb6-47"></a><span class="co">#&gt; ==============</span></span>
 <span id="cb6-48"><a href="#cb6-48"></a><span class="co">#&gt; </span></span>
 <span id="cb6-49"><a href="#cb6-49"></a><span class="co">#&gt; H2ORegressionModel: stackedensemble</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210313_023827 </span></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210313_024948 </span></span>
 <span id="cb6-51"><a href="#cb6-51"></a><span class="co">#&gt; Number of Base Models: 3</span></span>
 <span id="cb6-52"><a href="#cb6-52"></a><span class="co">#&gt; </span></span>
 <span id="cb6-53"><a href="#cb6-53"></a><span class="co">#&gt; Base Models (count by algorithm type):</span></span>
@@ -289,11 +289,11 @@
 <span id="cb6-68"><a href="#cb6-68"></a><span class="co">#&gt; H2ORegressionMetrics: stackedensemble</span></span>
 <span id="cb6-69"><a href="#cb6-69"></a><span class="co">#&gt; ** Reported on training data. **</span></span>
 <span id="cb6-70"><a href="#cb6-70"></a><span class="co">#&gt; </span></span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="co">#&gt; MSE:  90763200</span></span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="co">#&gt; RMSE:  9526.972</span></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="co">#&gt; MAE:  8243.805</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="co">#&gt; RMSLE:  0.3454141</span></span>
-<span id="cb6-75"><a href="#cb6-75"></a><span class="co">#&gt; Mean Residual Deviance :  90763200</span></span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="co">#&gt; MSE:  83360594</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a><span class="co">#&gt; RMSE:  9130.202</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a><span class="co">#&gt; MAE:  7220.351</span></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="co">#&gt; RMSLE:  0.3386242</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="co">#&gt; Mean Residual Deviance :  83360594</span></span>
 <span id="cb6-76"><a href="#cb6-76"></a><span class="co">#&gt; </span></span>
 <span id="cb6-77"><a href="#cb6-77"></a><span class="co">#&gt; </span></span>
 <span id="cb6-78"><a href="#cb6-78"></a><span class="co">#&gt; </span></span>
@@ -301,11 +301,11 @@
 <span id="cb6-80"><a href="#cb6-80"></a><span class="co">#&gt; ** Reported on cross-validation data. **</span></span>
 <span id="cb6-81"><a href="#cb6-81"></a><span class="co">#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **</span></span>
 <span id="cb6-82"><a href="#cb6-82"></a><span class="co">#&gt; </span></span>
-<span id="cb6-83"><a href="#cb6-83"></a><span class="co">#&gt; MSE:  211588740</span></span>
-<span id="cb6-84"><a href="#cb6-84"></a><span class="co">#&gt; RMSE:  14546.09</span></span>
-<span id="cb6-85"><a href="#cb6-85"></a><span class="co">#&gt; MAE:  10632.09</span></span>
-<span id="cb6-86"><a href="#cb6-86"></a><span class="co">#&gt; RMSLE:  0.2782992</span></span>
-<span id="cb6-87"><a href="#cb6-87"></a><span class="co">#&gt; Mean Residual Deviance :  211588740</span></span></code></pre></div>
+<span id="cb6-83"><a href="#cb6-83"></a><span class="co">#&gt; MSE:  76338403</span></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="co">#&gt; RMSE:  8737.185</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="co">#&gt; MAE:  6175.395</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a><span class="co">#&gt; RMSLE:  0.1745528</span></span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="co">#&gt; Mean Residual Deviance :  76338403</span></span></code></pre></div>
 <p>Finally, we predict on the test dataset:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">predict</span>(model_fitted, test_tbl)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; </span></span>
@@ -321,16 +321,16 @@
 <span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; # A tibble: 84 x 1</span></span>
 <span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt;      .pred</span></span>
 <span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt;      &lt;dbl&gt;</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt;  1  23275.</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt;  2  38607.</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt;  3  40635.</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt;  4  45979.</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt;  5  84616.</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt;  6  79509.</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt;  7 120838.</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a><span class="co">#&gt;  8  23275.</span></span>
-<span id="cb7-23"><a href="#cb7-23"></a><span class="co">#&gt;  9  39970.</span></span>
-<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#&gt; 10  40635.</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt;  1  19168.</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt;  2  40233.</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt;  3  36676.</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt;  4  45263.</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt;  5  83686.</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt;  6  73212.</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt;  7 117720.</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co">#&gt;  8  19168.</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">#&gt;  9  40233.</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#&gt; 10  36676.</span></span>
 <span id="cb7-25"><a href="#cb7-25"></a><span class="co">#&gt; # … with 74 more rows</span></span></code></pre></div>
 </div>
 <div id="modeltime-workflow" class="section level2">
@@ -423,13 +423,13 @@
 <span id="cb11-9"><a href="#cb11-9"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb11-10"><a href="#cb11-10"></a><span class="st">  </span><span class="er">|</span><span class="st">                                                                      </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</span>
 <span id="cb11-11"><a href="#cb11-11"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="st">  </span><span class="er">|==</span><span class="st">                                                                    </span><span class="er">|</span><span class="st">   </span><span class="dv">3</span>%</span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="st">  </span><span class="er">|===</span><span class="st">                                                                   </span><span class="er">|</span><span class="st">   </span><span class="dv">4</span>%</span>
 <span id="cb11-13"><a href="#cb11-13"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb11-14"><a href="#cb11-14"></a><span class="st">  </span><span class="er">|=================</span><span class="st">                                                     </span><span class="er">|</span><span class="st">  </span><span class="dv">24</span>%</span>
 <span id="cb11-15"><a href="#cb11-15"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb11-16"><a href="#cb11-16"></a><span class="st">  </span><span class="er">|===============================</span><span class="st">                                       </span><span class="er">|</span><span class="st">  </span><span class="dv">44</span>%</span>
 <span id="cb11-17"><a href="#cb11-17"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
-<span id="cb11-18"><a href="#cb11-18"></a><span class="st">  </span><span class="er">|=============================================</span><span class="st">                         </span><span class="er">|</span><span class="st">  </span><span class="dv">64</span>%</span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="st">  </span><span class="er">|=============================================</span><span class="st">                         </span><span class="er">|</span><span class="st">  </span><span class="dv">65</span>%</span>
 <span id="cb11-19"><a href="#cb11-19"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb11-20"><a href="#cb11-20"></a><span class="st">  </span><span class="er">|======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
 <span id="cb11-21"><a href="#cb11-21"></a><span class="co">#&gt; </span></span>
@@ -438,15 +438,15 @@
 <span id="cb11-24"><a href="#cb11-24"></a>  <span class="op">|</span><span class="st">                                                                            </span></span>
 <span id="cb11-25"><a href="#cb11-25"></a><span class="st">  </span><span class="er">|======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
 <span id="cb11-26"><a href="#cb11-26"></a><span class="co">#&gt;                                           model_id mean_residual_deviance</span></span>
-<span id="cb11-27"><a href="#cb11-27"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210313_023844               89872590</span></span>
-<span id="cb11-28"><a href="#cb11-28"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210313_023844             1887913493</span></span>
-<span id="cb11-29"><a href="#cb11-29"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210313_023844             2202249547</span></span>
-<span id="cb11-30"><a href="#cb11-30"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210313_023844             2261584439</span></span>
-<span id="cb11-31"><a href="#cb11-31"></a><span class="co">#&gt;        rmse        mse       mae     rmsle</span></span>
-<span id="cb11-32"><a href="#cb11-32"></a><span class="co">#&gt; 1  9480.116   89872590  7023.262 0.2293239</span></span>
-<span id="cb11-33"><a href="#cb11-33"></a><span class="co">#&gt; 2 43450.127 1887913493 34646.739 1.1032775</span></span>
-<span id="cb11-34"><a href="#cb11-34"></a><span class="co">#&gt; 3 46928.132 2202249547 38496.136 1.2258330</span></span>
-<span id="cb11-35"><a href="#cb11-35"></a><span class="co">#&gt; 4 47556.119 2261584439 38597.183 1.2282724</span></span>
+<span id="cb11-27"><a href="#cb11-27"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210313_025008               89598713</span></span>
+<span id="cb11-28"><a href="#cb11-28"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210313_025008             2001994559</span></span>
+<span id="cb11-29"><a href="#cb11-29"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210313_025008             2202249547</span></span>
+<span id="cb11-30"><a href="#cb11-30"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210313_025008             2261584439</span></span>
+<span id="cb11-31"><a href="#cb11-31"></a><span class="co">#&gt;       rmse        mse       mae     rmsle</span></span>
+<span id="cb11-32"><a href="#cb11-32"></a><span class="co">#&gt; 1  9465.66   89598713  7017.267 0.2297752</span></span>
+<span id="cb11-33"><a href="#cb11-33"></a><span class="co">#&gt; 2 44743.65 2001994559 36200.562 1.1252126</span></span>
+<span id="cb11-34"><a href="#cb11-34"></a><span class="co">#&gt; 3 46928.13 2202249547 38496.136 1.2258330</span></span>
+<span id="cb11-35"><a href="#cb11-35"></a><span class="co">#&gt; 4 47556.12 2261584439 38597.183 1.2282724</span></span>
 <span id="cb11-36"><a href="#cb11-36"></a><span class="co">#&gt; </span></span>
 <span id="cb11-37"><a href="#cb11-37"></a><span class="co">#&gt; [4 rows x 6 columns]</span></span>
 <span id="cb11-38"><a href="#cb11-38"></a></span>
@@ -512,8 +512,9 @@
 <li>and more.</li>
 </ul>
 <p class="text-center" style="font-size:30px;">
-<a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Unlock the High-Performance Time Series Forecasting Course</a>
 </p>
+<p><a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Unlock the High-Performance Time Series Forecasting Course</a></p>
+
 </div>
   </div>
 
