@@ -7,6 +7,7 @@ Authors@R: c(
 Description: 
     Use the 'H2O' machine learning library inside of 'modeltime'.
     Available models include 'AutoML' for Automatic Machine Learning. 
+    Please see H2O.ai for more information <https://github.com/h2oai/h2o-3>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

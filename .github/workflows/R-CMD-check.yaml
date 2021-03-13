@@ -68,6 +68,14 @@ jobs:
           pak::local_system_requirements(execute = TRUE)
           pak::pkg_system_requirements("rcmdcheck", execute = TRUE)
         shell: Rscript {0}
+      
+      - name: Set up Java (Windows)
+        if: runner.os == 'Windows'
+        uses: actions/setup-java@v1
+        with:
+          java-version: '13' 
+          java-package: jre 
+          architecture: x64 
 
       - name: Install dependencies
         run: |
