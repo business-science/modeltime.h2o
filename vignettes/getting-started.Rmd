@@ -1,6 +1,8 @@
 ---
 title: "Getting Started with Modeltime H2O"
 output: rmarkdown::html_vignette
+resource_files:
+  - articles/logo.png
 vignette: >
   %\VignetteIndexEntry{Getting Started with Modeltime H2O}
   %\VignetteEngine{knitr::rmarkdown}
