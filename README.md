@@ -33,10 +33,21 @@ H2O](https://business-science.github.io/modeltime.h2o/articles/getting-started.h
 
 <img src="man/figures/h2o_forecast_plot.png" width="100%" />
 
-## Meet the Forecasting Ecosystem
+## Meet the modeltime ecosystem
 
-Modeltime H2O is part of a **growing ecosystem** of Modeltime
-forecasting packages.
+> Learn a growing ecosystem of forecasting packages
+
+<div class="figure" style="text-align: center">
+
+<img src="man/figures/modeltime_ecosystem.jpg" alt="The modeltime ecosystem is growing" width="100%" />
+<p class="caption">
+The modeltime ecosystem is growing
+</p>
+
+</div>
+
+Modeltime is part of a **growing ecosystem** of Modeltime forecasting
+packages.
 
 -   [Learn Modeltime (Machine
     Learning)](https://business-science.github.io/modeltime/)
@@ -56,12 +67,14 @@ forecasting packages.
 -   [Learn Modeltime Resample
     (Backtesting)](https://business-science.github.io/modeltime.resample/)
 
-## High-Performance Forecasting Course
+## Take the High-Performance Forecasting Course
 
-<a href="https://www.youtube.com/embed/elQb4VzRINg" target="_blank"><img src="http://img.youtube.com/vi/elQb4VzRINg/0.jpg" alt="Anomalize" width="100%" height="450"/></a>
+> Become the forecasting expert for your organization
 
-[*My Talk on High-Performance Time Series
-Forecasting*](https://youtu.be/elQb4VzRINg)
+<a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting/" target="_blank"><img src="https://www.filepicker.io/api/file/jay1WUozSWCVHfFBEil3" alt="High-Performance Time Series Forecasting Course" width="100%" /></a>
+
+[*High-Performance Time Series
+Course*](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting/)
 
 ### Time Series is Changing
 
@@ -70,18 +83,16 @@ forecasts every day.** This is what I call a *High-Performance Time
 Series Forecasting System (HPTSF)* - Accurate, Robust, and Scalable
 Forecasting.
 
-**High-Performance Forecasting Systems will save companies MILLIONS of
-dollars.** Imagine what will happen to your career if you can provide
-your organization a “High-Performance Time Series Forecasting System”
-(HPTSF System).
+**High-Performance Forecasting Systems will save companies by improving
+accuracy and scalability.** Imagine what will happen to your career if
+you can provide your organization a “High-Performance Time Series
+Forecasting System” (HPTSF System).
 
 ### How to Learn High-Performance Time Series Forecasting
 
-I teach how to build a HPTFS System in my **High-Performance Time Series
-Forecasting Course**. If interested in learning Scalable
-High-Performance Forecasting Strategies then [take my Time Series
-Forecasting
-Course](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting).
+I teach how to build a HPTFS System in my [**High-Performance Time
+Series Forecasting
+Course**](https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting).
 You will learn:
 
 -   **Time Series Machine Learning** (cutting-edge) with `Modeltime` -
@@ -96,7 +107,11 @@ You will learn:
 -   **Scalable Forecasting** - Forecast 1000+ time series in parallel
 -   and more.
 
+<p class="text-center" style="font-size:24px;">
+Become the Time Series Expert for your organization.
+</p>
+<br>
 <p class="text-center" style="font-size:30px;">
-<a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Unlock
+<a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Take
 the High-Performance Time Series Forecasting Course</a>
 </p>
