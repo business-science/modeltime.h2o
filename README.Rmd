@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 > Forecasting with H2O AutoML
 
-Modeltime H2O provides an H2O backend to the Modeltime Forecasting Ecosystem. The main algorithm is __H2O AutoML__, and automatic machine learning library that is built for speed and scale. 
+Modeltime H2O provides an H2O backend to the Modeltime Forecasting Ecosystem. The main algorithm is __H2O AutoML__, an automatic machine learning library that is built for speed and scale. 
 
 ``` r
 # Install Development Version

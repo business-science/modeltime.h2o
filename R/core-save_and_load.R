@@ -1,6 +1,6 @@
 # SAVE/LOAD ----
 
-#' Saving and Loading H2O AutoML Models
+#' Saving and Loading Modeltime H2O Models
 #'
 #' H2O AutoML models require a special storage process that saves / loads the
 #' recipe used to recreate a model to / from a directory that the user
@@ -9,7 +9,11 @@
 #' @param object A fitted model object
 #' @param path A directory to store the H2O AutoML model files
 #' @param overwrite Whether or not to allow overwriting a H2O AutoML model's directory. Default: FALSE.
-#'
+#' 
+#' @return 
+#' - `save_h2o_model()`: No return value, called for side effects (composes a directory of model files)
+#' - `load_h2o_model()`: No return value, called for side effects (reads a directory of model files)
+#' 
 #' @examples
 #' \dontrun{
 #' library(tidymodels)

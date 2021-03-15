@@ -16,7 +16,7 @@ coverage](https://codecov.io/gh/business-science/modeltime.h2o/branch/master/gra
 > Forecasting with H2O AutoML
 
 Modeltime H2O provides an H2O backend to the Modeltime Forecasting
-Ecosystem. The main algorithm is **H2O AutoML**, and automatic machine
+Ecosystem. The main algorithm is **H2O AutoML**, an automatic machine
 learning library that is built for speed and scale.
 
 ``` r

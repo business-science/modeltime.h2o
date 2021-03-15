@@ -10,6 +10,9 @@ automl_reg(mode = "regression")
 \item{mode}{A single character string for the type of model.
 The only possible value for this model is "regression".}
 }
+\value{
+An updated model specification with classes \code{automl_reg} and \code{model_spec}.
+}
 \description{
 \code{automl_reg()} is a way to generate a \emph{specification} of a AutoML model
 before fitting and allows the model to be created using

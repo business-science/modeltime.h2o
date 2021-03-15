@@ -13,6 +13,9 @@ automl_predict_impl(object, new_data, ...)
 
 \item{...}{Additional arguments passed to \code{h2o::h2o.predict()}}
 }
+\value{
+A vector of values (predictions) with class \code{numeric}.
+}
 \description{
 Bridge prediction Function for H2O AutoML Models
 }

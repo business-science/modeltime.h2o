@@ -118,7 +118,7 @@
 <div id="libraries" class="section level2">
 <h2 class="hasAnchor">
 <a href="#libraries" class="anchor"></a>Libraries</h2>
-<p>Load the following librearies:</p>
+<p>Load the following libraries:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/modeltime.h2o">modeltime.h2o</a></span><span class="op">)</span>
@@ -128,7 +128,7 @@
 <div id="collect-data-and-split-into-training-and-test-sets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#collect-data-and-split-into-training-and-test-sets" class="anchor"></a>Collect data and split into training and test sets</h2>
-<p>Next, we load the walmart_sales_weekly data containing 7 time series and visualize them using the <code><a href="https://rdrr.io/pkg/timetk/man/plot_time_series.html">timetk::plot_time_series()</a></code> function.</p>
+<p>Next, we load the <code>walmart_sales_weekly</code> data containing 7 time series and visualize them using the <code><a href="https://rdrr.io/pkg/timetk/man/plot_time_series.html">timetk::plot_time_series()</a></code> function.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="va">walmart_sales_weekly</span> <span class="op">%&gt;%</span>
     <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">Date</span>, <span class="va">Weekly_Sales</span><span class="op">)</span>
@@ -156,7 +156,7 @@
 <div id="model-specification-training-and-prediction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#model-specification-training-and-prediction" class="anchor"></a>Model specification, training and prediction</h2>
-<p>In order to correctly use modeltime.h2o, it is necessary to connect to an H2O cluster through the h2o.init() function. You can find more information on how to set up the cluster by typing ?h2o.init or by visiting the <a href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html">official site</a>.</p>
+<p>In order to correctly use modeltime.h2o, it is necessary to connect to an H2O cluster through the <code><a href="https://rdrr.io/pkg/h2o/man/h2o.init.html">h2o.init()</a></code> function. You can find more information on how to set up the cluster by typing <code><a href="https://rdrr.io/pkg/h2o/man/h2o.init.html">?h2o.init</a></code> or by visiting the <a href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html">official site</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/h2o/man/h2o.init.html">h2o.init</a></span><span class="op">(</span>
     nthreads <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,
@@ -166,14 +166,14 @@
 <span class="co">#&gt;  Connection successful!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         2 days 5 hours </span>
+<span class="co">#&gt;     H2O cluster uptime:         2 days 22 hours </span>
 <span class="co">#&gt;     H2O cluster timezone:       America/New_York </span>
 <span class="co">#&gt;     H2O data parsing timezone:  UTC </span>
 <span class="co">#&gt;     H2O cluster version:        3.32.0.1 </span>
-<span class="co">#&gt;     H2O cluster version age:    5 months and 5 days !!! </span>
+<span class="co">#&gt;     H2O cluster version age:    5 months and 6 days !!! </span>
 <span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_mdancho_rfu672 </span>
 <span class="co">#&gt;     H2O cluster total nodes:    1 </span>
-<span class="co">#&gt;     H2O cluster total memory:   7.71 GB </span>
+<span class="co">#&gt;     H2O cluster total memory:   7.65 GB </span>
 <span class="co">#&gt;     H2O cluster total cores:    12 </span>
 <span class="co">#&gt;     H2O cluster allowed cores:  12 </span>
 <span class="co">#&gt;     H2O cluster healthy:        TRUE </span>
@@ -210,7 +210,7 @@
 <span class="co">#&gt;   seed = 786</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Computational engine: h2o</span></code></pre></div>
-<p>Next, let’s train the model!</p>
+<p>Next, let’s train the model with <code>fit()</code>!</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model_fitted <span class="ot">&lt;-</span> model_spec <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>(Weekly_Sales <span class="sc">~</span> ., <span class="at">data =</span> train_tbl)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -235,22 +235,22 @@
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|</span>                                                                            </span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="er">|======================================================================|</span> <span class="dv">100</span>%</span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                           model_id mean_residual_deviance</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210314_174628               35828139</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210314_174628               37377721</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210314_174628               39132256</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210314_174628               40163035</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210315_102214               36135015</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210315_102214               37913849</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210315_102214               38950421</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210315_102214               40512216</span></span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       rmse      mse      mae     rmsle</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 5985.661 35828139 3657.176 0.1456433</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 6113.732 37377721 3733.471 0.1472439</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 6255.578 39132256 3974.489 0.1635590</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 6337.431 40163035 4146.629 0.1698988</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 6011.241 36135015 3660.544 0.1453047</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 6157.422 37913849 3760.692 0.1483846</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 6241.027 38950421 3958.945 0.1615362</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 6364.921 40512216 4162.325 0.1694726</span></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4 rows x 6 columns]</span></span>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>model_fitted</span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; parsnip model object</span></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Fit time:  7.7s </span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Fit time:  7.8s </span></span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; H2O AutoML - Stackedensemble</span></span>
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; --------</span></span>
@@ -258,7 +258,7 @@
 <span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ==============</span></span>
 <span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; H2ORegressionModel: stackedensemble</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210314_174628 </span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210315_102214 </span></span>
 <span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of Base Models: 3</span></span>
 <span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Base Models (count by algorithm type):</span></span>
@@ -279,11 +279,11 @@
 <span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; H2ORegressionMetrics: stackedensemble</span></span>
 <span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ** Reported on training data. **</span></span>
 <span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MSE:  11134461</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:  3336.834</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MAE:  2131.677</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSLE:  0.07934803</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mean Residual Deviance :  11134461</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MSE:  11847345</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:  3441.997</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MAE:  2187.248</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSLE:  0.08017388</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mean Residual Deviance :  11847345</span></span>
 <span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -291,12 +291,12 @@
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ** Reported on cross-validation data. **</span></span>
 <span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **</span></span>
 <span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MSE:  35828139</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:  5985.661</span></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MAE:  3657.176</span></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSLE:  0.1456433</span></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mean Residual Deviance :  35828139</span></span></code></pre></div>
-<p>Finally, we predict on the test dataset:</p>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MSE:  36135015</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:  6011.241</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MAE:  3660.544</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSLE:  0.1453047</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mean Residual Deviance :  36135015</span></span></code></pre></div>
+<p>Finally, we <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> on the test dataset:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model_fitted, test_tbl)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|</span>                                                                            </span>
@@ -311,26 +311,26 @@
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 84 x 1</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      .pred</span></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;dbl&gt;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  18378.</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2  31646.</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  38489.</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  41036.</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5  75551.</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6  81943.</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 135478.</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8  17837.</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9  37326.</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  37634.</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  18363.</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2  31406.</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  38668.</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  41026.</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5  75941.</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6  82196.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 135643.</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8  18126.</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9  36638.</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  37510.</span></span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 74 more rows</span></span></code></pre></div>
 </div>
 <div id="modeltime-workflow" class="section level2">
 <h2 class="hasAnchor">
 <a href="#modeltime-workflow" class="anchor"></a>Modeltime Workflow</h2>
-<p>Once we have our fitted model, we can follow the modeltime workflow from step 3:</p>
+<p>Once we have our fitted model, we can follow the <a href="https://business-science.github.io/modeltime/articles/getting-started-with-modeltime.html">Modeltime Workflow</a>:</p>
 <ul>
 <li><p>Add fitted models to a <strong>Model Table</strong>.</p></li>
 <li><p><strong>Calibrate</strong> the models to a testing set.</p></li>
-<li><p>Perform Testing Set Forecast &amp; Accuracy Evaluation.</p></li>
+<li><p>Perform Testing Set <strong>Forecast Evaluation</strong> &amp; Accuracy Evaluation.</p></li>
 <li><p><strong>Refit</strong> the models to Full Dataset &amp; Forecast Forward</p></li>
 </ul>
 </div>
@@ -426,15 +426,15 @@
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|</span>                                                                            </span>
 <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="er">|======================================================================|</span> <span class="dv">100</span>%</span>
 <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                           model_id mean_residual_deviance</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210314_174638               33755463</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210314_174638               36018971</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210314_174638               37650827</span></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210314_174638               38250373</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210315_102225               33658073</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                 XGBoost_3_AutoML_20210315_102225               36018971</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                 XGBoost_2_AutoML_20210315_102225               37559358</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                 XGBoost_1_AutoML_20210315_102225               37790922</span></span>
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       rmse      mse      mae     rmsle</span></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 5809.945 33755463 3547.934 0.1415797</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 5801.558 33658073 3546.170 0.1418743</span></span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 6001.581 36018971 3654.044 0.1445198</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 6136.027 37650827 3939.259 0.1649052</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 6184.689 38250373 4137.752 0.1802715</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 6128.569 37559358 3928.538 0.1643384</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 6147.432 37790922 4114.338 0.1813016</span></span>
 <span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4 rows x 6 columns]</span></span>
 <span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
@@ -477,32 +477,48 @@
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model_h2o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/save_h2o_model.html">load_h2o_model</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"../model_fitted/"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="learning-more" class="section level2">
+<div id="take-the-high-performance-forecasting-course" class="section level2">
 <h2 class="hasAnchor">
-<a href="#learning-more" class="anchor"></a>Learning More</h2>
-<p>
-<iframe width="100%" height="450" src="https://www.youtube.com/embed/elQb4VzRINg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);">
-</iframe>
-</p>
-<p><em>My Talk on High-Performance Time Series Forecasting</em></p>
+<a href="#take-the-high-performance-forecasting-course" class="anchor"></a>Take the High-Performance Forecasting Course</h2>
+<blockquote>
+<p>Become the forecasting expert for your organization</p>
+</blockquote>
+<p><a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting/" target="_blank"><img src="https://www.filepicker.io/api/file/jay1WUozSWCVHfFBEil3" alt="High-Performance Time Series Forecasting Course" width="100%"></a></p>
+<p><a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting/"><em>High-Performance Time Series Course</em></a></p>
+<div id="time-series-is-changing" class="section level3">
+<h3 class="hasAnchor">
+<a href="#time-series-is-changing" class="anchor"></a>Time Series is Changing</h3>
 <p>Time series is changing. <strong>Businesses now need 10,000+ time series forecasts every day.</strong> This is what I call a <em>High-Performance Time Series Forecasting System (HPTSF)</em> - Accurate, Robust, and Scalable Forecasting.</p>
-<p>You need to provide a “High-Performance Time Series Forecasting System” (HPTSF System). <strong>High-Performance Forecasting Systems will save companies MILLIONS of dollars.</strong></p>
-<p>I teach how to build a HPTFS System in my <strong>High-Performance Time Series Forecasting Course</strong>. If interested in learning Scalable High-Performance Forecasting Strategies then <a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">take my course</a>. You will learn:</p>
+<p><strong>High-Performance Forecasting Systems will save companies by improving accuracy and scalability.</strong> Imagine what will happen to your career if you can provide your organization a “High-Performance Time Series Forecasting System” (HPTSF System).</p>
+</div>
+<div id="how-to-learn-high-performance-time-series-forecasting" class="section level3">
+<h3 class="hasAnchor">
+<a href="#how-to-learn-high-performance-time-series-forecasting" class="anchor"></a>How to Learn High-Performance Time Series Forecasting</h3>
+<p>I teach how to build a HPTFS System in my <a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting"><strong>High-Performance Time Series Forecasting Course</strong></a>. You will learn:</p>
 <ul>
-<li>Time Series Machine Learning (cutting-edge) with <code>Modeltime</code> - 30+ Models (Prophet, ARIMA, XGBoost, Random Forest, &amp; many more)</li>
-<li>NEW - Deep Learning with <code>GluonTS</code> (Competition Winners)</li>
-<li>Time Series Preprocessing, Noise Reduction, &amp; Anomaly Detection</li>
-<li>Feature engineering using lagged variables &amp; external regressors</li>
-<li>Hyperparameter Tuning</li>
-<li>Time series cross-validation</li>
-<li>Ensembling Multiple Machine Learning &amp; Univariate Modeling Techniques (Competition Winner)</li>
-<li>Scalable Forecasting - Forecast 1000+ time series in parallel</li>
+<li>
+<strong>Time Series Machine Learning</strong> (cutting-edge) with <code>Modeltime</code> - 30+ Models (Prophet, ARIMA, XGBoost, Random Forest, &amp; many more)</li>
+<li>
+<strong>Deep Learning</strong> with <code>GluonTS</code> (Competition Winners)</li>
+<li>
+<strong>Time Series Preprocessing</strong>, Noise Reduction, &amp; Anomaly Detection</li>
+<li>
+<strong>Feature engineering</strong> using lagged variables &amp; external regressors</li>
+<li><strong>Hyperparameter Tuning</strong></li>
+<li><strong>Time series cross-validation</strong></li>
+<li>
+<strong>Ensembling</strong> Multiple Machine Learning &amp; Univariate Modeling Techniques (Competition Winner)</li>
+<li>
+<strong>Scalable Forecasting</strong> - Forecast 1000+ time series in parallel</li>
 <li>and more.</li>
 </ul>
-<p class="text-center" style="font-size:30px;">
+<p class="text-center" style="font-size:24px;">
+Become the Time Series Expert for your organization.
 </p>
-<p><a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Unlock the High-Performance Time Series Forecasting Course</a></p>
-
+<br><p class="text-center" style="font-size:30px;">
+<a href="https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting">Take the High-Performance Time Series Forecasting Course</a>
+</p>
+</div>
 </div>
   </div>
 

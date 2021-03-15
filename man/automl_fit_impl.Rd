@@ -13,6 +13,9 @@ automl_fit_impl(x, y, ...)
 
 \item{...}{Additional arguments passed to \code{h2o.automl()}.}
 }
+\value{
+A fitted model with class \code{automl_fit_impl} and \code{modeltime_bridge}.
+}
 \description{
 H2O AutoML Modeling Function (Bridge)
 }

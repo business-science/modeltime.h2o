@@ -3,7 +3,7 @@
 \name{save_h2o_model}
 \alias{save_h2o_model}
 \alias{load_h2o_model}
-\title{Saving and Loading H2O AutoML Models}
+\title{Saving and Loading Modeltime H2O Models}
 \usage{
 save_h2o_model(object, path, overwrite = FALSE)
 
@@ -15,6 +15,12 @@ load_h2o_model(path)
 \item{path}{A directory to store the H2O AutoML model files}
 
 \item{overwrite}{Whether or not to allow overwriting a H2O AutoML model's directory. Default: FALSE.}
+}
+\value{
+\itemize{
+\item \code{save_h2o_model()}: No return value, called for side effects (composes a directory of model files)
+\item \code{load_h2o_model()}: No return value, called for side effects (reads a directory of model files)
+}
 }
 \description{
 H2O AutoML models require a special storage process that saves / loads the

@@ -8,6 +8,9 @@
 #'
 #' @param mode A single character string for the type of model.
 #'  The only possible value for this model is "regression".
+#'  
+#' @return 
+#' An updated model specification with classes `automl_reg` and `model_spec`.
 #'
 #' @details
 #'
@@ -154,6 +157,9 @@ translate.automl_reg <- function(x, engine = x$engine, ...) {
 #' @param y A numeric vector of values to fit
 #' @param ... Additional arguments passed to `h2o.automl()`.
 #' 
+#' @return 
+#' A fitted model with class `automl_fit_impl` and `modeltime_bridge`.
+#' 
 #' @export
 automl_fit_impl <- function(x, y, ...) {
 
@@ -292,7 +298,10 @@ predict.automl_fit_impl <- function(object, new_data, ...) {
 #'
 #' @inheritParams parsnip::predict.model_fit
 #' @param ... Additional arguments passed to `h2o::h2o.predict()`
-#'
+#' 
+#' @return 
+#' A vector of values (predictions) with class `numeric`.
+#' 
 #' @export
 automl_predict_impl <- function(object, new_data, ...) {
 
