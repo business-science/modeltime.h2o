@@ -79,11 +79,15 @@ test_tbl  <- testing(splits) %>% bake(prep(recipe_spec), .)
 In order to correctly use modeltime.h2o, it is necessary to connect to an H2O cluster through the `h2o.init()` function. You can find more information on how to set up the cluster by typing `?h2o.init` or by visiting the [official site](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html).
 
 ```{r}
+# Initialize H2O
 h2o.init(
     nthreads = -1,
     ip       = 'localhost',
     port     = 54321
 )
+
+# Optional - Set H2O No Progress to remove progress bars
+h2o.no_progress()
 ```
 
 Now comes the fun part! We define our model specification with the `automl_reg()` function and pass the arguments through the engine:
