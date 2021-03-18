@@ -2,20 +2,24 @@
 % Please edit documentation in R/core-leaderboard.R
 \name{automl_leaderboard}
 \alias{automl_leaderboard}
-\alias{automl_change_model}
+\alias{automl_update_model}
 \title{H2O AutoML Leaderboard Utilities}
 \usage{
 automl_leaderboard(object)
 
-automl_change_model(object, model_id)
+automl_update_model(object, model_id)
 }
 \arguments{
 \item{object}{An object created by \code{\link[=automl_reg]{automl_reg()}} and trained (fitted).}
 
-\item{model_id}{An H2O Model ID (shown in the AutoML Leaderboard).}
+\item{model_id}{An H2O Model ID (shown in the AutoML Leaderboard).
+Alternatively, the user can provide an H2O model.}
 }
 \value{
-A tibble containing the H2O AutoML Leaderboard
+\itemize{
+\item \code{automl_leaderboard()}: A \code{tibble} containing the H2O AutoML Leaderboard
+\item \code{automl_update_model()}: An updated \code{parnsip} or \code{workflow} with the H2O Model updated
+}
 }
 \description{
 The H2O AutoML Leaderboard lists any models that have been created during the \code{automl_reg()}
@@ -23,6 +27,6 @@ training process.
 \itemize{
 \item The training process automatically uses the top model.
 \item The available models can be shown with \code{automl_leaderboard()}
-\item The model change the model used using \code{automl_change_model()}.
+\item The model change the model used using \code{automl_update_model()}.
 }
 }

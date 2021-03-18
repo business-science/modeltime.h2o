@@ -160,7 +160,7 @@ test_that("automl_leaderboard() works.", {
 
 
 # CHANGE AUTOML MODEL ----
-test_that("automl_change_model() works.", {
+test_that("automl_update_model() works.", {
   
   testthat::skip_on_cran()
   
@@ -170,7 +170,7 @@ test_that("automl_change_model() works.", {
   model_id_1 <- model_ids[1]
   model_id_2 <- model_ids[2]
   
-  model_fit_swapped <- automl_change_model(model_fit, model_id_2)
+  model_fit_swapped <- automl_update_model(model_fit, model_id_2)
   
   model_2 <- h2o.getModel(model_id_2)
   
@@ -187,7 +187,7 @@ test_that("automl_change_model() works.", {
   model_id_1 <- model_ids[1]
   model_id_2 <- model_ids[2]
   
-  model_fit_swapped <- automl_change_model(wflw_fit, model_id_2)
+  model_fit_swapped <- automl_update_model(wflw_fit, model_id_2)
   
   model_2 <- h2o.getModel(model_id_2)
   
@@ -199,10 +199,23 @@ test_that("automl_change_model() works.", {
   )
   
   
-  # Errors
+  # ERRORS
+  
+  # No object
   expect_error(
-    automl_change_model("a")
+    automl_update_model()
   )
+  
+  # Bad object
+  expect_error(
+    automl_update_model("a")
+  )
+  
+  # Bad model id
+  expect_error(
+    automl_update_model(wflw_fit, "A")
+  )
+  
   
   
 })
