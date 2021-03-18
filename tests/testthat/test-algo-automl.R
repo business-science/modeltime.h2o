@@ -112,10 +112,10 @@ test_that("automl_reg: Workflow Test", {
     resid <- testing(m750_splits)$value - predictions_tbl$.value
     
     # - Max Error less than 1500
-    testthat::expect_lte(max(abs(resid)), 5000)
+    testthat::expect_lte(max(abs(resid)), 10000)
     
     # - MAE less than 700
-    testthat::expect_lte(mean(abs(resid)), 1000)
+    testthat::expect_lte(mean(abs(resid)), 5000)
     
 })
 
