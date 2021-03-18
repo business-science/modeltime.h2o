@@ -33,7 +33,7 @@ reference:
   - title: Saving and Loading H2O Models
     contents:
     - save_h2o_model
-  - title: Leaderboard Management
+  - title: H2O AutoML Management
     description: These functions help you handle switching models that are in your AutoML Leaderboard
     contents:
     - automl_leaderboard

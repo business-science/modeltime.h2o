@@ -19,7 +19,49 @@
 #' - `automl_leaderboard()`: A `tibble` containing the H2O AutoML Leaderboard
 #' - `automl_update_model()`: An updated `parnsip` or `workflow` with the H2O Model updated
 #' 
+#' @examples 
+#' \dontrun{
+#' library(tidymodels)
+#' library(modeltime.h2o)
+#' library(h2o)
+#' library(tidyverse)
+#' library(timetk)
 #' 
+#' h2o.init(
+#'     nthreads = -1,
+#'     ip       = 'localhost',
+#'     port     = 54321
+#' )
+#' 
+#' # Model Spec
+#' model_spec <- automl_reg(mode = 'regression') %>%
+#'     set_engine(
+#'         engine                     = 'h2o',
+#'         max_runtime_secs           = 5, 
+#'         max_runtime_secs_per_model = 4,
+#'         nfolds                     = 5,
+#'         max_models                 = 3,
+#'         exclude_algos              = c("DeepLearning"),
+#'         seed                       = 786
+#'     ) 
+#' 
+#' 
+#' # Fit AutoML
+#' model_fit <- model_spec %>%
+#'     fit(value ~ ., data = training(m750_splits))
+#' 
+#' # Inspect the Leaderboard
+#' leaderboard_tbl <- automl_leaderboard(model_fit)
+#' leaderboard_tbl
+#' 
+#' # Swap an H2O Model Out (Using the 2nd model from the leaderboard)
+#' model_id_2  <- leaderboard_tbl$model_id[[2]]
+#' model_fit_2 <- automl_update_model(model_fit, model_id_2)
+#' model_fit_2
+#'     
+#'     
+#' }
+#'   
 #' @name automl_leaderboard
 #' @export
 
