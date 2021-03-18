@@ -258,6 +258,17 @@ automl_fit_impl <- function(x, y, ...) {
 
 }
 
+# MAPS TO THE LOCATION OF THE H2O MODEL SO THE CORRECT INFO IS SWAPPED
+swap_h2o_model.automl_fit_impl <- function(object, h2o_model) {
+  
+  object$models$model_1 <- h2o_model
+  object$desc <- stringr::str_glue('H2O AutoML - {stringr::str_to_title(h2o_model@algorithm)}') 
+  
+  return(object)
+  
+}
+
+# CALL TO H2O
 make_h2o_call <- function(.fn, args, others) {
 
   # remove args with NULLs
@@ -274,6 +285,8 @@ make_h2o_call <- function(.fn, args, others) {
 
   rlang::eval_tidy(model_call)
 }
+
+
 
 #' @export
 print.automl_fit_impl <- function(x, ...) {

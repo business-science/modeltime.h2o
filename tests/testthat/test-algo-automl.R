@@ -120,7 +120,7 @@ test_that("automl_reg: Workflow Test", {
 })
 
 
-# LEADERBOARD ----
+# AUTOML LEADERBOARD ----
 
 test_that("automl_leaderboard() works.", {
   
@@ -156,5 +156,54 @@ test_that("automl_leaderboard() works.", {
   )
   
   
+})
+
+
+# CHANGE AUTOML MODEL ----
+test_that("automl_change_model() works.", {
+  
+  testthat::skip_on_cran()
+  
+  # Parsnip 
+  model_ids <- automl_leaderboard(model_fit) %>% pull(model_id)
+  
+  model_id_1 <- model_ids[1]
+  model_id_2 <- model_ids[2]
+  
+  model_fit_swapped <- automl_change_model(model_fit, model_id_2)
+  
+  model_2 <- h2o.getModel(model_id_2)
+  
+  expect_equal(model_fit_swapped$fit$models$model_1, model_2)
+  
+  expect_equal(
+    model_fit_swapped$fit$desc, 
+    stringr::str_glue('H2O AutoML - {stringr::str_to_title(model_2@algorithm)}')
+  )
+  
+  # Workflow 
+  model_ids <- automl_leaderboard(wflw_fit) %>% pull(model_id)
+  
+  model_id_1 <- model_ids[1]
+  model_id_2 <- model_ids[2]
+  
+  model_fit_swapped <- automl_change_model(wflw_fit, model_id_2)
+  
+  model_2 <- h2o.getModel(model_id_2)
+  
+  expect_equal(model_fit_swapped$fit$fit$fit$models$model_1, model_2)
+  
+  expect_equal(
+    model_fit_swapped$fit$fit$fit$desc, 
+    stringr::str_glue('H2O AutoML - {stringr::str_to_title(model_2@algorithm)}')
+  )
+  
+  
+  # Errors
+  expect_error(
+    automl_change_model("a")
+  )
+  
   
 })
+
