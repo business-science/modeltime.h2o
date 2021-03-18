@@ -4,8 +4,8 @@ testthat::context("H2O AUTOML TEST")
 
 h2o.init(
     nthreads = -1,
-    ip = 'localhost',
-    port = 54321
+    ip       = 'localhost',
+    port     = 54321
 )
 
 # Model Spec
@@ -15,7 +15,7 @@ model_spec <- automl_reg(mode = 'regression') %>%
         max_runtime_secs           = 5, 
         max_runtime_secs_per_model = 4,
         nfolds                     = 5,
-        max_models                 = 5,
+        max_models                 = 3,
         exclude_algos              = c("DeepLearning"),
         seed                       =  786
     ) 
@@ -26,7 +26,7 @@ test_that("automl_reg: Parsnip Test", {
     
     testthat::skip_on_cran()
     
-    model_fit <- model_spec %>%
+    model_fit <<- model_spec %>%
         fit(value ~ ., data = training(m750_splits))
     
     predictions_tbl <- model_fit %>%
@@ -76,7 +76,7 @@ test_that("automl_reg: Workflow Test", {
         add_recipe(recipe_spec) %>%
         add_model(model_spec)
     
-    wflw_fit <- wflw %>%
+    wflw_fit <<- wflw %>%
         fit(training(m750_splits))
     
     # Forecast
@@ -117,4 +117,44 @@ test_that("automl_reg: Workflow Test", {
     # - MAE less than 700
     testthat::expect_lte(mean(abs(resid)), 1000)
     
+})
+
+
+# LEADERBOARD ----
+
+test_that("automl_leaderboard() works.", {
+  
+  testthat::skip_on_cran()
+  
+  # PASS 
+  expect_s3_class(automl_leaderboard(model_fit), "tbl_df")
+  
+  expect_s3_class(automl_leaderboard(wflw_fit), "tbl_df")
+  
+  # ERRORS 
+  
+  # Workflow is not trained
+  expect_error(
+    automl_leaderboard(workflow())
+  )
+  
+  # Workflow iw not trained
+  expect_error(
+    workflow() %>% 
+      add_model(automl_reg() %>% set_engine("h2o")) %>%
+      automl_leaderboard()
+  )
+  
+  # Model spec not trained
+  expect_error(
+    automl_leaderboard(automl_reg())
+  )
+  
+  # Incorrect object
+  expect_error(
+    automl_leaderboard("a")
+  )
+  
+  
+  
 })
