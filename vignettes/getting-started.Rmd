@@ -62,7 +62,7 @@ data_tbl %>%
   )
 ```
 
-Then, we separate the data with the `initial_time_split()` function and generate a training dataset and a test one.
+Then, we separate the data with the `time_series_split()` function and generate a training dataset and a test one.
 
 ```{r}
 splits <- time_series_split(data_tbl, assess = "3 month", cumulative = TRUE)
@@ -115,6 +115,18 @@ model_fitted <- model_spec %>%
     fit(Weekly_Sales ~ ., data = train_tbl)
 
 model_fitted
+```
+
+The best models are stored in the `leaderbord` and by default the one with the best metric with which you have decided to sort the leaderbord is selected (this behavior can be controlled with the `sort_metric` parameter passed through set_engine. For more information see ?h2o.automl. By default, it is sorted by the mean_residual_deviance). To list the models created during training that have finally been stored in the leaderbord you can use the `automl_leaderbord` function as follows:
+
+```{r}
+automl_leaderboard(model_fitted)
+```
+
+To change the default selected model (remember, the first one sorted according to the selected metric) you can do it with the `automl_update_model()` function as follows (do not run the following example as the model id name will have changed as there is randomness in the process):
+
+```{r, eval=FALSE}
+automl_update_model(model_fitted, model_id = "StackedEnsemble_AllModels_AutoML_20210319_204825")
 ```
 
 Finally, we `predict()` on the test dataset:
