@@ -78,6 +78,38 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Ecosystem
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li class="dropdown-header">Workflow</li>
+    <li>
+      <a href="https://business-science.github.io/modeltime/">Modeltime (Machine Learning)</a>
+    </li>
+    <li>
+      <a href="https://business-science.github.io/timetk/">TimeTK (Data Transformation &amp; Visualization)</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Improve</li>
+    <li>
+      <a href="https://business-science.github.io/modeltime.ensemble/">Modeltime Ensemble (Blending Forecasts)</a>
+    </li>
+    <li>
+      <a href="https://business-science.github.io/modeltime.resample/">Modeltime Resample (Backtesting)</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">More Power</li>
+    <li>
+      <a href="https://business-science.github.io/modeltime.h2o/">Modeltime H2O (AutoML)</a>
+    </li>
+    <li>
+      <a href="https://business-science.github.io/modeltime.gluonts/">Modeltime GluonTS (Deep Learning)</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -164,22 +196,14 @@
     ip       <span class="op">=</span> <span class="st">'localhost'</span>,
     port     <span class="op">=</span> <span class="fl">54321</span>
 <span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H2O is not running yet, starting it now...</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Note:  In case of errors look at the following log files:</span>
-<span class="co">#&gt;     /var/folders/st/s5vwv9pd27g7z2sffwlqmtv80000gn/T//Rtmp8TdAul/file31bb78bc5bcf/h2o_mdancho_started_from_r.out</span>
-<span class="co">#&gt;     /var/folders/st/s5vwv9pd27g7z2sffwlqmtv80000gn/T//Rtmp8TdAul/file31bb162fb0f6/h2o_mdancho_started_from_r.err</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Starting H2O JVM and connecting: .. Connection successful!</span>
+<span class="co">#&gt;  Connection successful!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         2 seconds 86 milliseconds </span>
+<span class="co">#&gt;     H2O cluster uptime:         1 days 20 hours </span>
 <span class="co">#&gt;     H2O cluster timezone:       America/New_York </span>
 <span class="co">#&gt;     H2O data parsing timezone:  UTC </span>
 <span class="co">#&gt;     H2O cluster version:        3.32.0.1 </span>
-<span class="co">#&gt;     H2O cluster version age:    5 months and 11 days !!! </span>
+<span class="co">#&gt;     H2O cluster version age:    5 months and 12 days !!! </span>
 <span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_mdancho_vkh649 </span>
 <span class="co">#&gt;     H2O cluster total nodes:    1 </span>
 <span class="co">#&gt;     H2O cluster total memory:   8.00 GB </span>
@@ -227,22 +251,22 @@
 <code class="sourceCode R"><span class="va">model_fitted</span> <span class="op">&lt;-</span> <span class="va">model_spec</span> <span class="op">%&gt;%</span>
     <span class="fu">fit</span><span class="op">(</span><span class="va">Weekly_Sales</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">train_tbl</span><span class="op">)</span>
 <span class="co">#&gt;                                           model_id mean_residual_deviance</span>
-<span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210319_204803               48548019</span>
-<span class="co">#&gt; 2                 XGBoost_2_AutoML_20210319_204803              125899995</span>
-<span class="co">#&gt; 3                 XGBoost_3_AutoML_20210319_204803             1032842620</span>
-<span class="co">#&gt; 4                 XGBoost_1_AutoML_20210319_204803             2369268925</span>
-<span class="co">#&gt;        rmse        mse       mae     rmsle</span>
-<span class="co">#&gt; 1  6967.641   48548019  4507.807 0.1687108</span>
-<span class="co">#&gt; 2 11220.517  125899995  7733.874 0.1983832</span>
-<span class="co">#&gt; 3 32137.869 1032842620 23566.083 0.7339466</span>
-<span class="co">#&gt; 4 48675.137 2369268925 40066.038 1.2850293</span>
+<span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210321_165343               35852946</span>
+<span class="co">#&gt; 2                 XGBoost_3_AutoML_20210321_165343               37719578</span>
+<span class="co">#&gt; 3                 XGBoost_2_AutoML_20210321_165343               38674352</span>
+<span class="co">#&gt; 4                 XGBoost_1_AutoML_20210321_165343               40445331</span>
+<span class="co">#&gt;       rmse      mse      mae     rmsle</span>
+<span class="co">#&gt; 1 5987.733 35852946 3640.501 0.1438911</span>
+<span class="co">#&gt; 2 6141.627 37719578 3768.311 0.1478239</span>
+<span class="co">#&gt; 3 6218.871 38674352 3905.561 0.1589520</span>
+<span class="co">#&gt; 4 6359.664 40445331 4156.590 0.1697849</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [4 rows x 6 columns]</span>
 
 <span class="va">model_fitted</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  9.1s </span>
+<span class="co">#&gt; Fit time:  8s </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2O AutoML - Stackedensemble</span>
 <span class="co">#&gt; --------</span>
@@ -250,7 +274,7 @@
 <span class="co">#&gt; ==============</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionModel: stackedensemble</span>
-<span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210319_204803 </span>
+<span class="co">#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210321_165343 </span>
 <span class="co">#&gt; Number of Base Models: 3</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Base Models (count by algorithm type):</span>
@@ -271,11 +295,11 @@
 <span class="co">#&gt; H2ORegressionMetrics: stackedensemble</span>
 <span class="co">#&gt; ** Reported on training data. **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  38901419</span>
-<span class="co">#&gt; RMSE:  6237.1</span>
-<span class="co">#&gt; MAE:  4134.717</span>
-<span class="co">#&gt; RMSLE:  0.1340216</span>
-<span class="co">#&gt; Mean Residual Deviance :  38901419</span>
+<span class="co">#&gt; MSE:  12529280</span>
+<span class="co">#&gt; RMSE:  3539.672</span>
+<span class="co">#&gt; MAE:  2236.954</span>
+<span class="co">#&gt; RMSLE:  0.08084787</span>
+<span class="co">#&gt; Mean Residual Deviance :  12529280</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
@@ -283,21 +307,21 @@
 <span class="co">#&gt; ** Reported on cross-validation data. **</span>
 <span class="co">#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  48548019</span>
-<span class="co">#&gt; RMSE:  6967.641</span>
-<span class="co">#&gt; MAE:  4507.807</span>
-<span class="co">#&gt; RMSLE:  0.1687108</span>
-<span class="co">#&gt; Mean Residual Deviance :  48548019</span></code></pre></div>
+<span class="co">#&gt; MSE:  35852946</span>
+<span class="co">#&gt; RMSE:  5987.733</span>
+<span class="co">#&gt; MAE:  3640.501</span>
+<span class="co">#&gt; RMSLE:  0.1438911</span>
+<span class="co">#&gt; Mean Residual Deviance :  35852946</span></code></pre></div>
 <p>The best models are stored in the <code>leaderbord</code> and by default the one with the best metric with which you have decided to sort the leaderbord is selected (this behavior can be controlled with the <code>sort_metric</code> parameter passed through set_engine. For more information see ?h2o.automl. By default, it is sorted by the mean_residual_deviance). To list the models created during training that have finally been stored in the leaderbord you can use the <code>automl_leaderbord</code> function as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/automl_leaderboard.html">automl_leaderboard</a></span><span class="op">(</span><span class="va">model_fitted</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 x 6</span>
-<span class="co">#&gt;   model_id                      mean_residual_devi…   rmse      mse    mae rmsle</span>
-<span class="co">#&gt;   &lt;chr&gt;                                       &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 StackedEnsemble_AllModels_Au…           48548019.  6968.   4.85e7  4508. 0.169</span>
-<span class="co">#&gt; 2 XGBoost_2_AutoML_20210319_20…          125899995. 11221.   1.26e8  7734. 0.198</span>
-<span class="co">#&gt; 3 XGBoost_3_AutoML_20210319_20…         1032842620. 32138.   1.03e9 23566. 0.734</span>
-<span class="co">#&gt; 4 XGBoost_1_AutoML_20210319_20…         2369268925. 48675.   2.37e9 40066. 1.29</span></code></pre></div>
+<span class="co">#&gt;   model_id                        mean_residual_devia…  rmse     mse   mae rmsle</span>
+<span class="co">#&gt;   &lt;chr&gt;                                          &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 StackedEnsemble_AllModels_Auto…            35852946. 5988.  3.59e7 3641. 0.144</span>
+<span class="co">#&gt; 2 XGBoost_3_AutoML_20210321_1653…            37719578. 6142.  3.77e7 3768. 0.148</span>
+<span class="co">#&gt; 3 XGBoost_2_AutoML_20210321_1653…            38674352. 6219.  3.87e7 3906. 0.159</span>
+<span class="co">#&gt; 4 XGBoost_1_AutoML_20210321_1653…            40445331. 6360.  4.04e7 4157. 0.170</span></code></pre></div>
 <p>To change the default selected model (remember, the first one sorted according to the selected metric) you can do it with the <code><a href="../reference/automl_leaderboard.html">automl_update_model()</a></code> function as follows (do not run the following example as the model id name will have changed as there is randomness in the process):</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/automl_leaderboard.html">automl_update_model</a></span><span class="op">(</span><span class="va">model_fitted</span>, model_id <span class="op">=</span> <span class="st">"StackedEnsemble_AllModels_AutoML_20210319_204825"</span><span class="op">)</span></code></pre></div>
@@ -307,16 +331,16 @@
 <span class="co">#&gt; # A tibble: 84 x 1</span>
 <span class="co">#&gt;      .pred</span>
 <span class="co">#&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt;  1  19207.</span>
-<span class="co">#&gt;  2  28595.</span>
-<span class="co">#&gt;  3  35974.</span>
-<span class="co">#&gt;  4  42491.</span>
-<span class="co">#&gt;  5  79404.</span>
-<span class="co">#&gt;  6  81279.</span>
-<span class="co">#&gt;  7 123452.</span>
-<span class="co">#&gt;  8  19207.</span>
-<span class="co">#&gt;  9  28595.</span>
-<span class="co">#&gt; 10  35974.</span>
+<span class="co">#&gt;  1  18077.</span>
+<span class="co">#&gt;  2  31188.</span>
+<span class="co">#&gt;  3  38364.</span>
+<span class="co">#&gt;  4  40711.</span>
+<span class="co">#&gt;  5  75033.</span>
+<span class="co">#&gt;  6  81981.</span>
+<span class="co">#&gt;  7 135336.</span>
+<span class="co">#&gt;  8  18042.</span>
+<span class="co">#&gt;  9  36806.</span>
+<span class="co">#&gt; 10  37673.</span>
 <span class="co">#&gt; # … with 74 more rows</span></code></pre></div>
 </div>
 <div id="modeltime-workflow" class="section level2">
@@ -383,15 +407,15 @@
 <code class="sourceCode R"><span class="va">refit_tbl</span> <span class="op">&lt;-</span> <span class="va">modeltime_tbl</span> <span class="op">%&gt;%</span>
     <span class="fu">modeltime_refit</span><span class="op">(</span><span class="va">data_prepared_tbl</span><span class="op">)</span>
 <span class="co">#&gt;                                           model_id mean_residual_deviance</span>
-<span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210319_204817              352853605</span>
-<span class="co">#&gt; 2                 XGBoost_3_AutoML_20210319_204817             1576422202</span>
-<span class="co">#&gt; 3                 XGBoost_2_AutoML_20210319_204817             1600538559</span>
-<span class="co">#&gt; 4                 XGBoost_1_AutoML_20210319_204817             2378544915</span>
-<span class="co">#&gt;       rmse        mse      mae     rmsle</span>
-<span class="co">#&gt; 1 18784.40  352853605 14381.83 0.5631354</span>
-<span class="co">#&gt; 2 39704.18 1576422202 31018.44 1.0053497</span>
-<span class="co">#&gt; 3 40006.73 1600538559 28840.36 0.9700812</span>
-<span class="co">#&gt; 4 48770.33 2378544915 40161.73 1.2786348</span>
+<span class="co">#&gt; 1 StackedEnsemble_AllModels_AutoML_20210321_165354               33995529</span>
+<span class="co">#&gt; 2                 XGBoost_3_AutoML_20210321_165354               36972440</span>
+<span class="co">#&gt; 3                 XGBoost_2_AutoML_20210321_165354               37958356</span>
+<span class="co">#&gt; 4                 XGBoost_1_AutoML_20210321_165354               38318588</span>
+<span class="co">#&gt;       rmse      mse      mae     rmsle</span>
+<span class="co">#&gt; 1 5830.568 33995529 3566.355 0.1411400</span>
+<span class="co">#&gt; 2 6080.497 36972440 3703.920 0.1448547</span>
+<span class="co">#&gt; 3 6161.035 37958356 3921.923 0.1637224</span>
+<span class="co">#&gt; 4 6190.201 38318588 4137.709 0.1795158</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [4 rows x 6 columns]</span>
 
