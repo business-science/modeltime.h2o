@@ -89,7 +89,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">modeltime.h2o</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Forecasting</li>
     <li>
-      <a href="../articles/getting-started.html">Getting Started with Modeltime</a>
+      <a href="../articles/getting-started.html">Getting Started with Modeltime H2O</a>
     </li>
   </ul>
 </li>
@@ -181,7 +181,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/business-science/modeltime">
+  <a href="https://github.com/business-science/modeltime.h2o">
     <span class="fab fa-github"></span>
      
   </a>
@@ -203,16 +203,27 @@
       <small>Source: <a href='https://github.com/business-science/modeltime.h2o/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="modeltimeh2o-0109000" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0.9000">
-<a href="#modeltimeh2o-0109000" class="anchor"></a>modeltime.h2o 0.1.0.9000<small> Unreleased </small>
+    <div id="modeltimeh2o-011" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.1">
+<a href="#modeltimeh2o-011" class="anchor"></a>modeltime.h2o 0.1.1<small> Unreleased </small>
 </h1>
+<div id="new-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New Functions</h2>
 <ul>
 <li>
 <code><a href="../reference/automl_leaderboard.html">automl_leaderboard()</a></code>: Returns the AutoML Leaderboard from the AutoML run when the model was created.</li>
 <li>
 <code><a href="../reference/automl_leaderboard.html">automl_update_model()</a></code>: Makes it easy to swap out models from the AutoML Leaderboard.</li>
 </ul>
+</div>
+<div id="fix-cran-issue" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fix-cran-issue" class="anchor"></a>Fix CRAN issue</h2>
+<ul>
+<li>Moved <code><a href="https://rdrr.io/pkg/h2o/man/h2o.init.html">h2o.init()</a></code> to skip on CRAN per H2O (Erin LeDell) suggestion. The original issue was related to <code>libxgboost4j_gpu*.so</code> being left on the user system when the user’s temp library.</li>
+</ul>
+</div>
 </div>
     <div id="modeltimeh2o-010" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.0">
@@ -224,8 +235,7 @@
 <code><a href="../reference/automl_reg.html">automl_reg()</a></code>: Uses H2O AutoML as a backend for forecasting.<br>
 </li>
 <li>
-<code><a href="../reference/save_h2o_model.html">save_h2o_model()</a></code> and <code><a href="../reference/save_h2o_model.html">load_h2o_model()</a></code>
-</li>
+<code><a href="../reference/save_h2o_model.html">save_h2o_model()</a></code> and <code><a href="../reference/save_h2o_model.html">load_h2o_model()</a></code>: Saving and loading H2O models and Workflow/Parsnip objects</li>
 </ul>
 </div>
   </div>
