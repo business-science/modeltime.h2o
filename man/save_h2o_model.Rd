@@ -34,6 +34,8 @@ library(tidyverse)
 library(timetk)
 library(modeltime.h2o)
 
+h2o.init()
+
 model_fit <- automl_reg(mode = 'regression') \%>\%
     set_engine(
         engine                     = 'h2o',

@@ -2,23 +2,30 @@ testthat::context("H2O AUTOML TEST")
 
 # SETUP ----
 
-h2o.init(
+
+test_that("Fire up H2O", {
+  
+  testthat::skip_on_cran()
+  
+  h2o.init(
     nthreads = -1,
     ip       = 'localhost',
     port     = 54321
-)
-
-# Model Spec
-model_spec <- automl_reg(mode = 'regression') %>%
+  ) 
+  
+  # Model Spec
+  model_spec <<- automl_reg(mode = 'regression') %>%
     set_engine(
-        engine                     = 'h2o',
-        max_runtime_secs           = 5, 
-        max_runtime_secs_per_model = 4,
-        nfolds                     = 5,
-        max_models                 = 3,
-        exclude_algos              = c("DeepLearning"),
-        seed                       =  786
+      engine                     = 'h2o',
+      max_runtime_secs           = 5, 
+      max_runtime_secs_per_model = 4,
+      nfolds                     = 5,
+      max_models                 = 3,
+      exclude_algos              = c("DeepLearning"),
+      seed                       =  786
     ) 
+  
+})
 
 # PARSNIP ----
 
@@ -215,8 +222,6 @@ test_that("automl_update_model() works.", {
   expect_error(
     automl_update_model(wflw_fit, "A")
   )
-  
-  
   
 })
 
