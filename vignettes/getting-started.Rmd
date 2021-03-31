@@ -234,12 +234,14 @@ model_h2o <- load_h2o_model(path = "../model_fitted/")
 
 ## Shut down H2O when finished
 
-Finally, once we have saved our the specific models that we want to keep, we shutdown the H2O cluster. 
+Finally, once we have saved the specific models that we want to keep, we shutdown the H2O cluster. 
 
 ```{r}
-h2o.shutdown()
+h2o.shutdown(prompt = FALSE)
 ```
 
+
+Need to learn high-performance time series forecasting?
 
 ## Take the High-Performance Forecasting Course
 
