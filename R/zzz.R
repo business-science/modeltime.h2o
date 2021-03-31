@@ -16,3 +16,9 @@
     #H2O AutoML
     make_automl()
 }
+
+.onDetach <- function(libpath) {
+    
+    detach("package:h2o")
+
+}

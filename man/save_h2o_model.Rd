@@ -55,6 +55,10 @@ model_fit \%>\% save_h2o_model(path = "/dir_h2o_automl_model/")
 # Loads the model
 load_h2o_model(path = "/dir_h2o_automl_model/")
 
+# Shutdown H2O when Finished. 
+# Make sure to save any work before. 
+h2o.shutdown(prompt = FALSE)
+
 }
 
 }

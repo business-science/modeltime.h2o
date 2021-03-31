@@ -227,6 +227,6 @@ test_that("automl_update_model() works.", {
 
 testthat::test_that("Shutdown H2O", {
   testthat::skip_on_cran()
-  h2o.shutdown()
+  h2o.shutdown(prompt = FALSE)
 })
 

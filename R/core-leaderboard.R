@@ -58,6 +58,10 @@
 #' model_id_2  <- leaderboard_tbl$model_id[[2]]
 #' model_fit_2 <- automl_update_model(model_fit, model_id_2)
 #' model_fit_2
+#' 
+#' # Shutdown H2O when Finished. 
+#' # Make sure to save any work before. 
+#' h2o.shutdown(prompt = FALSE)
 #'     
 #'     
 #' }

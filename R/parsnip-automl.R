@@ -44,7 +44,7 @@
 #' @seealso [fit.model_spec()], [set_engine()]
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' library(tidymodels)
 #' library(modeltime.h2o)
 #' library(h2o)
@@ -104,6 +104,10 @@
 #' # - IMPORTANT: New Data must have date feature
 #'
 #' predict(model_fitted, test_tbl)
+#' 
+#' # Shutdown H2O when Finished. 
+#' # Make sure to save any work before. 
+#' h2o.shutdown(prompt = FALSE)
 #' }
 #'
 #' @export
