@@ -61,7 +61,7 @@ test_that("automl_reg: Parsnip Test", {
     testthat::expect_lte(max(abs(resid)), 5000)
     
     # - MAE less than 700
-    testthat::expect_lte(mean(abs(resid)), 1000)
+    testthat::expect_lte(mean(abs(resid)), 2500)
     
 })
 
@@ -223,5 +223,10 @@ test_that("automl_update_model() works.", {
     automl_update_model(wflw_fit, "A")
   )
   
+})
+
+testthat::test_that("Shutdown H2O", {
+  testthat::skip_on_cran()
+  h2o.shutdown()
 })
 

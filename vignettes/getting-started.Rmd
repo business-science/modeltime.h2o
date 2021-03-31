@@ -232,6 +232,15 @@ You can reload the model into R using `load_h2o_model()`.
 model_h2o <- load_h2o_model(path = "../model_fitted/")
 ```
 
+## Shut down H2O when finished
+
+Finally, once we have saved our the specific models that we want to keep, we shutdown the H2O cluster. 
+
+```{r}
+h2o.shutdown()
+```
+
+
 ## Take the High-Performance Forecasting Course
 
 > Become the forecasting expert for your organization
