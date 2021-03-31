@@ -287,6 +287,10 @@ Alternatively, the user can provide an H2O model.</p></td>
 <span class='va'>model_id_2</span>  <span class='op'>&lt;-</span> <span class='va'>leaderboard_tbl</span><span class='op'>$</span><span class='va'>model_id</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
 <span class='va'>model_fit_2</span> <span class='op'>&lt;-</span> <span class='fu'>automl_update_model</span><span class='op'>(</span><span class='va'>model_fit</span>, <span class='va'>model_id_2</span><span class='op'>)</span>
 <span class='va'>model_fit_2</span>
+
+<span class='co'># Shutdown H2O when Finished. </span>
+<span class='co'># Make sure to save any work before. </span>
+<span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.shutdown.html'>h2o.shutdown</a></span><span class='op'>(</span>prompt <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
     
     
 <span class='op'>}</span>
