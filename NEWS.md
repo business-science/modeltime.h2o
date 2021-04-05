@@ -7,7 +7,7 @@
 
 ## Fix CRAN issue
 
-- Moved `h2o.init()` to skip on CRAN per H2O (Erin LeDell) suggestion. The original issue was related to `libxgboost4j_gpu*.so` being left on the user system when the user's temp library. 
+- Moved `h2o.init()` to skip on CRAN per H2O recommendation. The original issue was related to `libxgboost4j_gpu*.so` being left on the user system when the user's temp library. This is being corrected by H2O. 
 
 # modeltime.h2o 0.1.0
 

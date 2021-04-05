@@ -260,30 +260,12 @@ The <code>fit()</code> interface accepts date and date-time features and handles
     <div class='dont-index'><p><code>fit.model_spec()</code>, <code>set_engine()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>── <span style='font-weight: bold;'>Attaching packages</span><span> ────────────────────────────────────── tidymodels 0.1.2 ──</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>broom    </span><span> 0.7.5          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>recipes  </span><span> 0.1.15    </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>dials    </span><span> 0.0.9.</span><span style='color: #BB0000;'>9000</span><span>     </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>rsample  </span><span> 0.0.9     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>dplyr    </span><span> 1.0.5          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>tibble   </span><span> 3.1.0     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>ggplot2  </span><span> 3.3.3          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>tidyr    </span><span> 1.1.3     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>infer    </span><span> 0.5.4          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>tune     </span><span> 0.1.3     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>modeldata</span><span> 0.1.0          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>workflows</span><span> 0.2.2     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>parsnip  </span><span> 0.1.5          </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>yardstick</span><span> 0.0.8     </span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>purrr    </span><span> 0.3.4          </span></div><div class='output co'>#&gt; <span class='message'>── </span><span style='font-weight: bold;'>Conflicts</span><span> ───────────────────────────────────────── tidymodels_conflicts() ──</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>purrr</span><span>::</span><span style='color: #00BB00;'>discard()</span><span> masks </span><span style='color: #0000BB;'>scales</span><span>::discard()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>filter()</span><span>  masks </span><span style='color: #0000BB;'>stats</span><span>::filter()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>lag()</span><span>     masks </span><span style='color: #0000BB;'>stats</span><span>::lag()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>recipes</span><span>::</span><span style='color: #00BB00;'>step()</span><span>  masks </span><span style='color: #0000BB;'>stats</span><span>::step()</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/modeltime.h2o'>modeltime.h2o</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/modeltime.h2o'>modeltime.h2o</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/h2oai/h2o-3'>h2o</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>── </span><span style='font-weight: bold;'>Attaching packages</span><span> ─────────────────────────────────────── tidyverse 1.3.0 ──</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>readr  </span><span> 1.4.0     </span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>forcats</span><span> 0.5.1</span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✓</span><span> </span><span style='color: #0000BB;'>stringr</span><span> 1.4.0     </span></div><div class='output co'>#&gt; <span class='message'>── </span><span style='font-weight: bold;'>Conflicts</span><span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>readr</span><span>::</span><span style='color: #00BB00;'>col_factor()</span><span> masks </span><span style='color: #0000BB;'>scales</span><span>::col_factor()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>purrr</span><span>::</span><span style='color: #00BB00;'>discard()</span><span>    masks </span><span style='color: #0000BB;'>scales</span><span>::discard()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>filter()</span><span>     masks </span><span style='color: #0000BB;'>stats</span><span>::filter()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>stringr</span><span>::</span><span style='color: #00BB00;'>fixed()</span><span>    masks </span><span style='color: #0000BB;'>recipes</span><span>::fixed()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>lag()</span><span>        masks </span><span style='color: #0000BB;'>stats</span><span>::lag()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>x</span><span> </span><span style='color: #0000BB;'>readr</span><span>::</span><span style='color: #00BB00;'>spec()</span><span>       masks </span><span style='color: #0000BB;'>yardstick</span><span>::spec()</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/timetk'>timetk</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/timetk'>timetk</a></span><span class='op'>)</span>
 
 <span class='va'>data_tbl</span> <span class='op'>&lt;-</span> <span class='va'>walmart_sales_weekly</span> <span class='op'>%&gt;%</span>
     <span class='fu'>select</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>Date</span>, <span class='va'>Weekly_Sales</span><span class='op'>)</span>
@@ -293,7 +275,7 @@ The <code>fit()</code> interface accepts date and date-time features and handles
     assess     <span class='op'>=</span> <span class='st'>"3 month"</span>, 
     cumulative <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using date_var: Date</span></div><div class='output co'>#&gt; <span class='message'>Data is not ordered by the 'date_var'. Resamples will be arranged by `Date`.</span></div><div class='output co'>#&gt; <span class='message'>Overlapping Timestamps Detected. Processing overlapping time series together using sliding windows.</span></div><div class='input'>
+
 <span class='va'>recipe_spec</span> <span class='op'>&lt;-</span> <span class='fu'>recipe</span><span class='op'>(</span><span class='va'>Weekly_Sales</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='fu'>training</span><span class='op'>(</span><span class='va'>splits</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='https://rdrr.io/pkg/timetk/man/step_timeseries_signature.html'>step_timeseries_signature</a></span><span class='op'>(</span><span class='va'>Date</span><span class='op'>)</span>
 
@@ -307,36 +289,7 @@ The <code>fit()</code> interface accepts date and date-time features and handles
     ip <span class='op'>=</span> <span class='st'>'localhost'</span>,
     port <span class='op'>=</span> <span class='fl'>54321</span>
 <span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; H2O is not running yet, starting it now...
-#&gt; 
-#&gt; Note:  In case of errors look at the following log files:
-#&gt;     /var/folders/st/s5vwv9pd27g7z2sffwlqmtv80000gn/T//RtmpMDLL90/file3eb71110bb29/h2o_mdancho_started_from_r.out
-#&gt;     /var/folders/st/s5vwv9pd27g7z2sffwlqmtv80000gn/T//RtmpMDLL90/file3eb7616f897f/h2o_mdancho_started_from_r.err
-#&gt; 
-#&gt; 
-#&gt; Starting H2O JVM and connecting: .. Connection successful!
-#&gt; 
-#&gt; R is connected to the H2O cluster: 
-#&gt;     H2O cluster uptime:         2 seconds 484 milliseconds 
-#&gt;     H2O cluster timezone:       America/New_York 
-#&gt;     H2O data parsing timezone:  UTC 
-#&gt;     H2O cluster version:        3.32.0.1 
-#&gt;     H2O cluster version age:    5 months and 22 days !!! 
-#&gt;     H2O cluster name:           H2O_started_from_R_mdancho_ood584 
-#&gt;     H2O cluster total nodes:    1 
-#&gt;     H2O cluster total memory:   8.00 GB 
-#&gt;     H2O cluster total cores:    12 
-#&gt;     H2O cluster allowed cores:  12 
-#&gt;     H2O cluster healthy:        TRUE 
-#&gt;     H2O Connection ip:          localhost 
-#&gt;     H2O Connection port:        54321 
-#&gt;     H2O Connection proxy:       NA 
-#&gt;     H2O Internal Security:      FALSE 
-#&gt;     H2O API Extensions:         Amazon S3, XGBoost, Algos, AutoML, Core V3, TargetEncoder, Core V4 
-#&gt;     R Version:                  R version 4.0.2 (2020-06-22) </div><div class='output co'>#&gt; <span class='warning'>Warning: </span>
-#&gt; <span class='warning'>Your H2O cluster version is too old (5 months and 22 days)!</span>
-#&gt; <span class='warning'>Please download and install the latest version from http://h2o.ai/download/</span></div><div class='output co'>#&gt; </div><div class='input'>         
+         
  
 
 <span class='co'># ---- MODEL SPEC ----</span>
@@ -353,118 +306,27 @@ The <code>fit()</code> interface accepts date and date-time features and handles
     <span class='op'>)</span> 
 
 <span class='va'>model_spec</span>
-</div><div class='output co'>#&gt; H2O AutoML Model Specification (regression)
-#&gt; 
-#&gt; Engine-Specific Arguments:
-#&gt;   max_runtime_secs = 30
-#&gt;   max_runtime_secs_per_model = 30
-#&gt;   project_name = project_01
-#&gt;   nfolds = 5
-#&gt;   max_models = 1000
-#&gt;   exclude_algos = c("DeepLearning")
-#&gt;   seed = 786
-#&gt; 
-#&gt; Computational engine: h2o 
-#&gt; </div><div class='input'>
+
 <span class='co'># ---- TRAINING ----</span>
 <span class='co'># Important: Make sure the date is included as regressor.</span>
 
 <span class='co'># This training process should take 30-40 seconds</span>
 <span class='va'>model_fitted</span> <span class='op'>&lt;-</span> <span class='va'>model_spec</span> <span class='op'>%&gt;%</span>
     <span class='fu'>fit</span><span class='op'>(</span><span class='va'>Weekly_Sales</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>train_tbl</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Converting to H2OFrame...</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Training H2O AutoML...</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |===                                                                   |   5%  |                                                                              |=======                                                               |   9%  |                                                                              |==========                                                            |  14%  |                                                                              |=============                                                         |  19%  |                                                                              |================                                                      |  23%  |                                                                              |====================                                                  |  28%  |                                                                              |=======================                                               |  33%  |                                                                              |===========================                                           |  39%  |                                                                              |================================                                      |  46%  |                                                                              |===================================                                   |  50%  |                                                                              |======================================                                |  55%  |                                                                              |=========================================                             |  59%  |                                                                              |=============================================                         |  64%  |                                                                              |================================================                      |  69%  |                                                                              |===================================================                   |  73%  |                                                                              |======================================================                |  78%  |                                                                              |==========================================================            |  83%  |                                                                              |=============================================================         |  87%  |                                                                              |=================================================================     |  92%  |                                                                              |====================================================================  |  97%  |                                                                              |======================================================================| 100%
-#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>Leaderboard: </span></div><div class='output co'>#&gt;                                              model_id mean_residual_deviance
-#&gt; 1    StackedEnsemble_AllModels_AutoML_20210331_100618               33313950
-#&gt; 2 StackedEnsemble_BestOfFamily_AutoML_20210331_100618               33416037
-#&gt; 3      XGBoost_grid__1_AutoML_20210331_100618_model_3               34331133
-#&gt; 4     XGBoost_grid__1_AutoML_20210331_100618_model_10               35345362
-#&gt; 5                    XGBoost_3_AutoML_20210331_100618               36178176
-#&gt; 6      XGBoost_grid__1_AutoML_20210331_100618_model_4               36289402
-#&gt;       rmse      mse      mae     rmsle
-#&gt; 1 5771.824 33313950 3517.760 0.1395222
-#&gt; 2 5780.661 33416037 3520.183 0.1392016
-#&gt; 3 5859.278 34331133 3628.706 0.1437346
-#&gt; 4 5945.197 35345362 3672.445 0.1501596
-#&gt; 5 6014.830 36178176 3731.129 0.1543888
-#&gt; 6 6024.069 36289402 3736.910 0.1496543
-#&gt; 
-#&gt; [33 rows x 6 columns] </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Using top model: StackedEnsemble_AllModels_AutoML_20210331_100618</span></div><div class='input'>
+
 <span class='va'>model_fitted</span>
-</div><div class='output co'>#&gt; parsnip model object
-#&gt; 
-#&gt; Fit time:  39.4s 
-#&gt; 
-#&gt; H2O AutoML - Stackedensemble
-#&gt; --------
-#&gt; Model: Model Details:
-#&gt; ==============
-#&gt; 
-#&gt; H2ORegressionModel: stackedensemble
-#&gt; Model ID:  StackedEnsemble_AllModels_AutoML_20210331_100618 
-#&gt; Number of Base Models: 31
-#&gt; 
-#&gt; Base Models (count by algorithm type):
-#&gt; 
-#&gt;     drf     gbm     glm xgboost 
-#&gt;       2      12       1      16 
-#&gt; 
-#&gt; Metalearner:
-#&gt; 
-#&gt; Metalearner algorithm: glm
-#&gt; Metalearner cross-validation fold assignment:
-#&gt;   Fold assignment scheme: AUTO
-#&gt;   Number of folds: 5
-#&gt;   Fold column: NULL
-#&gt; Metalearner hyperparameters: 
-#&gt; 
-#&gt; 
-#&gt; H2ORegressionMetrics: stackedensemble
-#&gt; ** Reported on training data. **
-#&gt; 
-#&gt; MSE:  3951237
-#&gt; RMSE:  1987.772
-#&gt; MAE:  1365.175
-#&gt; RMSLE:  0.0575679
-#&gt; Mean Residual Deviance :  3951237
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; H2ORegressionMetrics: stackedensemble
-#&gt; ** Reported on cross-validation data. **
-#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
-#&gt; 
-#&gt; MSE:  33313950
-#&gt; RMSE:  5771.824
-#&gt; MAE:  3517.76
-#&gt; RMSLE:  0.1395222
-#&gt; Mean Residual Deviance :  33313950
-#&gt; 
-#&gt; </div><div class='input'>
+
 <span class='co'># ---- PREDICT ----</span>
 <span class='co'># - IMPORTANT: New Data must have date feature</span>
 
 <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model_fitted</span>, <span class='va'>test_tbl</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Converting to H2OFrame...</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
-#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 84 x 1</span><span>
-#&gt;      .pred
-#&gt;      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>  </span><span style='text-decoration: underline;'>17</span><span>402.
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>  </span><span style='text-decoration: underline;'>31</span><span>275.
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>  </span><span style='text-decoration: underline;'>37</span><span>803.
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>  </span><span style='text-decoration: underline;'>40</span><span>099.
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>  </span><span style='text-decoration: underline;'>72</span><span>840.
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>  </span><span style='text-decoration: underline;'>81</span><span>692.
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> </span><span style='text-decoration: underline;'>136</span><span>457.
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>  </span><span style='text-decoration: underline;'>17</span><span>101.
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>  </span><span style='text-decoration: underline;'>38</span><span>239.
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span>  </span><span style='text-decoration: underline;'>37</span><span>315.
-#&gt; </span><span style='color: #949494;'># … with 74 more rows</span><span></div><div class='input'><span class='co'># }</span>
 
-</div></span></pre>
+<span class='co'># Shutdown H2O when Finished. </span>
+<span class='co'># Make sure to save any work before. </span>
+<span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.shutdown.html'>h2o.shutdown</a></span><span class='op'>(</span>prompt <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
