@@ -177,7 +177,7 @@ automl_fit_impl <- function(x, y, ...) {
   x_nms <- names(x)
   
   # CONSTRUCT TRAINING FRAME
-  if (!inherits(data, "H2OFrame")) {
+  if (!inherits(x, "H2OFrame")) {
     message("Converting to H2OFrame...")
     training_frame <- tibble::tibble(x) %>%
       dplyr::mutate(target = y) %>%
