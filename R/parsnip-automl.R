@@ -164,6 +164,8 @@ translate.automl_reg <- function(x, engine = x$engine, ...) {
 #' @return 
 #' A fitted model with class `automl_fit_impl` and `modeltime_bridge`.
 #' 
+#' @keywords internal
+#' 
 #' @export
 automl_fit_impl <- function(x, y, ...) {
 
@@ -318,6 +320,8 @@ predict.automl_fit_impl <- function(object, new_data, ...) {
 #' 
 #' @return 
 #' A vector of values (predictions) with class `numeric`.
+#' 
+#' @keywords internal
 #' 
 #' @export
 automl_predict_impl <- function(object, new_data, ...) {
