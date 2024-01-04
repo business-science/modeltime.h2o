@@ -7,7 +7,7 @@
 automl_predict_impl(object, new_data, ...)
 }
 \arguments{
-\item{object}{An object of class \code{model_fit}}
+\item{object}{An object of class \code{model_fit}.}
 
 \item{new_data}{A rectangular data object, such as a data frame.}
 
@@ -19,3 +19,4 @@ A vector of values (predictions) with class \code{numeric}.
 \description{
 Bridge prediction Function for H2O AutoML Models
 }
+\keyword{internal}
