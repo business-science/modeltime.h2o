@@ -1,4 +1,6 @@
-# modeltime.h2o 0.1.1.9000 (Development Version)
+# modeltime.h2o 0.1.2
+
+- Get back on CRAN (timetk archival)
 
 # modeltime.h2o 0.1.1
 

@@ -1,6 +1,6 @@
 Package: modeltime.h2o
 Title: Modeltime 'H2O' Machine Learning
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: c(
     person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut", "cre")),
     person("Business Science", role = "cph"))
@@ -11,7 +11,7 @@ Description:
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Depends:
     modeltime (>= 0.4.1),
