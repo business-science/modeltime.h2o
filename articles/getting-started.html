@@ -216,19 +216,19 @@ site</a>.</p>
 <span><span class="co">#&gt; H2O is not running yet, starting it now...</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Note:  In case of errors look at the following log files:</span></span>
-<span><span class="co">#&gt;     /tmp/RtmpONUd8a/file21961b3a3c9a/h2o_runner_started_from_r.out</span></span>
-<span><span class="co">#&gt;     /tmp/RtmpONUd8a/file21964d582c21/h2o_runner_started_from_r.err</span></span>
+<span><span class="co">#&gt;     /tmp/RtmpD7NvJJ/file217c797e529f/h2o_runner_started_from_r.out</span></span>
+<span><span class="co">#&gt;     /tmp/RtmpD7NvJJ/file217c77a3486f/h2o_runner_started_from_r.err</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Starting H2O JVM and connecting: ... Connection successful!</span></span>
+<span><span class="co">#&gt; Starting H2O JVM and connecting: .... Connection successful!</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; R is connected to the H2O cluster: </span></span>
-<span><span class="co">#&gt;     H2O cluster uptime:         1 seconds 724 milliseconds </span></span>
+<span><span class="co">#&gt;     H2O cluster uptime:         1 seconds 919 milliseconds </span></span>
 <span><span class="co">#&gt;     H2O cluster timezone:       UTC </span></span>
 <span><span class="co">#&gt;     H2O data parsing timezone:  UTC </span></span>
 <span><span class="co">#&gt;     H2O cluster version:        3.42.0.2 </span></span>
 <span><span class="co">#&gt;     H2O cluster version age:    5 months and 10 days </span></span>
-<span><span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_runner_bqa008 </span></span>
+<span><span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_runner_wle394 </span></span>
 <span><span class="co">#&gt;     H2O cluster total nodes:    1 </span></span>
 <span><span class="co">#&gt;     H2O cluster total memory:   3.90 GB </span></span>
 <span><span class="co">#&gt;     H2O cluster total cores:    4 </span></span>
@@ -276,10 +276,10 @@ engine:</p>
 <code class="sourceCode R"><span><span class="va">model_fitted</span> <span class="op">&lt;-</span> <span class="va">model_spec</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu">fit</span><span class="op">(</span><span class="va">Weekly_Sales</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">train_tbl</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                                                  model_id      rmse        mse</span></span>
-<span><span class="co">#&gt; 1                      XGBoost_1_AutoML_1_20240104_203757  6368.842   40562143</span></span>
-<span><span class="co">#&gt; 2 StackedEnsemble_BestOfFamily_1_AutoML_1_20240104_203757  6371.445   40595317</span></span>
-<span><span class="co">#&gt; 3                          GBM_1_AutoML_1_20240104_203757  7607.165   57868955</span></span>
-<span><span class="co">#&gt; 4                          GLM_1_AutoML_1_20240104_203757 36255.636 1314471115</span></span>
+<span><span class="co">#&gt; 1                      XGBoost_1_AutoML_1_20240104_204414  6368.842   40562143</span></span>
+<span><span class="co">#&gt; 2 StackedEnsemble_BestOfFamily_1_AutoML_1_20240104_204414  6371.445   40595317</span></span>
+<span><span class="co">#&gt; 3                          GBM_1_AutoML_1_20240104_204414  7607.165   57868955</span></span>
+<span><span class="co">#&gt; 4                          GLM_1_AutoML_1_20240104_204414 36255.636 1314471115</span></span>
 <span><span class="co">#&gt;         mae     rmsle mean_residual_deviance</span></span>
 <span><span class="co">#&gt; 1  4175.752 0.1753395               40562143</span></span>
 <span><span class="co">#&gt; 2  4107.600 0.1690209               40595317</span></span>
@@ -298,7 +298,7 @@ engine:</p>
 <span><span class="co">#&gt; ==============</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; H2ORegressionModel: xgboost</span></span>
-<span><span class="co">#&gt; Model ID:  XGBoost_1_AutoML_1_20240104_203757 </span></span>
+<span><span class="co">#&gt; Model ID:  XGBoost_1_AutoML_1_20240104_204414 </span></span>
 <span><span class="co">#&gt; Model Summary: </span></span>
 <span><span class="co">#&gt;   number_of_trees</span></span>
 <span><span class="co">#&gt; 1              44</span></span>
@@ -366,8 +366,8 @@ have finally been stored in the leaderbord you can use the
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> XGBoost_1_AutoML_1_20240104…  <span style="text-decoration: underline;">6</span>369. 4.06<span style="color: #949494;">e</span>7  <span style="text-decoration: underline;">4</span>176. 0.175              40<span style="text-decoration: underline;">562</span>143.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> StackedEnsemble_BestOfFamil…  <span style="text-decoration: underline;">6</span>371. 4.06<span style="color: #949494;">e</span>7  <span style="text-decoration: underline;">4</span>108. 0.169              40<span style="text-decoration: underline;">595</span>317.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> GBM_1_AutoML_1_20240104_203…  <span style="text-decoration: underline;">7</span>607. 5.79<span style="color: #949494;">e</span>7  <span style="text-decoration: underline;">5</span>125. 0.212              57<span style="text-decoration: underline;">868</span>955.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> GLM_1_AutoML_1_20240104_203… <span style="text-decoration: underline;">36</span>256. 1.31<span style="color: #949494;">e</span>9 <span style="text-decoration: underline;">31</span>032. 0.835            <span style="text-decoration: underline;">1</span>314<span style="text-decoration: underline;">471</span>115.</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> GBM_1_AutoML_1_20240104_204…  <span style="text-decoration: underline;">7</span>607. 5.79<span style="color: #949494;">e</span>7  <span style="text-decoration: underline;">5</span>125. 0.212              57<span style="text-decoration: underline;">868</span>955.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> GLM_1_AutoML_1_20240104_204… <span style="text-decoration: underline;">36</span>256. 1.31<span style="color: #949494;">e</span>9 <span style="text-decoration: underline;">31</span>032. 0.835            <span style="text-decoration: underline;">1</span>314<span style="text-decoration: underline;">471</span>115.</span></span></code></pre></div>
 <p>To change the default selected model (remember, the first one sorted
 according to the selected metric) you can do it with the
 <code><a href="../reference/automl_leaderboard.html">automl_update_model()</a></code> function as follows (do not run the
@@ -467,10 +467,10 @@ results once we had reffited.</p>
 <code class="sourceCode R"><span><span class="va">refit_tbl</span> <span class="op">&lt;-</span> <span class="va">modeltime_tbl</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://business-science.github.io/modeltime/reference/modeltime_refit.html" class="external-link">modeltime_refit</a></span><span class="op">(</span><span class="va">data_prepared_tbl</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                                                  model_id      rmse        mse</span></span>
-<span><span class="co">#&gt; 1                      XGBoost_1_AutoML_2_20240104_203808  6060.518   36729882</span></span>
-<span><span class="co">#&gt; 2 StackedEnsemble_BestOfFamily_1_AutoML_2_20240104_203808  6061.512   36741927</span></span>
-<span><span class="co">#&gt; 3                          GBM_1_AutoML_2_20240104_203808  7524.808   56622738</span></span>
-<span><span class="co">#&gt; 4                          GLM_1_AutoML_2_20240104_203808 36259.518 1314752625</span></span>
+<span><span class="co">#&gt; 1                      XGBoost_1_AutoML_2_20240104_204427  6060.518   36729882</span></span>
+<span><span class="co">#&gt; 2 StackedEnsemble_BestOfFamily_1_AutoML_2_20240104_204427  6061.512   36741927</span></span>
+<span><span class="co">#&gt; 3                          GBM_1_AutoML_2_20240104_204427  7524.808   56622738</span></span>
+<span><span class="co">#&gt; 4                          GLM_1_AutoML_2_20240104_204427 36259.518 1314752625</span></span>
 <span><span class="co">#&gt;         mae     rmsle mean_residual_deviance</span></span>
 <span><span class="co">#&gt; 1  4075.988 0.1677377               36729882</span></span>
 <span><span class="co">#&gt; 2  3998.426 0.1604279               36741927</span></span>

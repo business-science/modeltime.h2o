@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2024-01-04T20:37Z
+last_built: 2024-01-04T20:43Z
 urls:
   reference: https://business-science.github.io/modeltime.h2o/reference
   article: https://business-science.github.io/modeltime.h2o/articles
