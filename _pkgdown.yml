@@ -1,9 +1,12 @@
+url: https://business-science.github.io/modeltime.h2o/
 template:
+  bootstrap: 5
+  bootswatch: lux
   params:
-    bootswatch: flatly
-    ganalytics: UA-76139189-2
+    ganalytics: G-20GDZ5LL77
 
 navbar:
+  bg: primary
   title: "modeltime.h2o"
   left:
     - icon: fa-home
@@ -46,6 +49,11 @@ navbar:
           href: https://business-science.github.io/modeltime.h2o/
         - text: 'Modeltime GluonTS (Deep Learning)'
           href: https://business-science.github.io/modeltime.gluonts/
+    - text: Python
+      menu:
+      - text: Forecast
+      - text: Timetk for Python (Time Series Analysis)
+        href: https://business-science.github.io/pytimetk/
     - icon: fas fa-graduation-cap
       text: "Learn"
       href: https://university.business-science.io/p/ds4b-203-r-high-performance-time-series-forecasting/
